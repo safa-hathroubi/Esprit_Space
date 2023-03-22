@@ -28,65 +28,66 @@ struct SignupView: View {
     @State private var showingAlert = false
     
     var body: some View {
-        ZStack {
-            Image("HD-wallpaper-simple-abstract-design-black-flat-modern-red-shapes-waves-white")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-                .ignoresSafeArea()
-            
-            
-            
-            VStack(spacing: 10) {
-                Text("Create an Account")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .padding(.bottom, 30)
+        NavigationView {
+            ZStack {
+                Image("HD-wallpaper-simple-abstract-design-black-flat-modern-red-shapes-waves-white")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                    .ignoresSafeArea()
                 
-                TextField("Name", text: $name)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding(.bottom, 10)
                 
-                TextField("Email", text: $email)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding(.bottom, 10)
                 
-                SecureField("Password", text: $password)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding(.bottom, 10)
-                
-                SecureField("Confirm Password", text: $confirmPassword)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding(.bottom, 20)
-                
-                Text(errorMessage)
-                    .foregroundColor(.red)
-                    .padding(.bottom, 10)
-                    .alert(isPresented: $showingAlert) {
-                        Alert(title: Text("Error"), message: Text(errorMessage), dismissButton: .default(Text("OK")))
+                VStack(spacing: 10) {
+                    Text("Create an Account")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .padding(.bottom, 30)
+                    
+                    TextField("Name", text: $name)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding(.bottom, 10)
+                    
+                    TextField("Email", text: $email)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding(.bottom, 10)
+                    
+                    SecureField("Password", text: $password)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding(.bottom, 10)
+                    
+                    SecureField("Confirm Password", text: $confirmPassword)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding(.bottom, 20)
+                    
+                    Text(errorMessage)
+                        .foregroundColor(.red)
+                        .padding(.bottom, 10)
+                        .alert(isPresented: $showingAlert) {
+                            Alert(title: Text("Error"), message: Text(errorMessage), dismissButton: .default(Text("OK")))
+                        }
+                    
+                    Button(action: signup) {
+                        Text("Sign Up")
+                            .foregroundColor(.white)
+                            .padding(.vertical, 10)
+                            .frame(maxWidth: .infinity)
+                            .background(Color.red)
+                            .cornerRadius(10)
                     }
-                
-                Button(action: signup) {
-                    Text("Sign Up")
-                        .foregroundColor(.white)
-                        .padding(.vertical, 10)
-                        .frame(maxWidth: .infinity)
-                        .background(Color.red)
-                        .cornerRadius(10)
+                    
+                    NavigationLink(destination: LoginView()) {
+                        Text("Already have an account? Login")
+                    }
                 }
-                
-                NavigationLink(destination: LoginView()) {
-                    Text("Already have an account? Login")
-                }
-            }
-            .padding()
-            //.frame(maxWidth: .infinity)
-            //.background(Color.white)
-            .cornerRadius(10)
-            .padding(.horizontal, 20)
-            .padding(.top, 300)
-            .padding(.bottom, 30)
-        }
+                .padding()
+                //.frame(maxWidth: .infinity)
+                //.background(Color.white)
+                .cornerRadius(10)
+                .padding(.horizontal, 20)
+                .padding(.top, 300)
+                .padding(.bottom, 30)
+            }}
     }
     
     func signup() {

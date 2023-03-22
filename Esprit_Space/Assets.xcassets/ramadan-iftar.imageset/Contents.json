@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "ramadan-iftar-invitation-template-design-3dbb41f5a36bc61735579913c1faa7fa_screen.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
