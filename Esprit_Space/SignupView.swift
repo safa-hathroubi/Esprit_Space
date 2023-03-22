@@ -38,11 +38,6 @@ struct SignupView: View {
             
             
             VStack(spacing: 10) {
-                
-                
-                
-                
-                
                 Text("Create an Account")
                     .font(.largeTitle)
                     .fontWeight(.bold)

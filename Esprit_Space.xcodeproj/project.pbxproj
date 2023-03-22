@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0AA4E97D29CB675000DD44EB /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA4E97C29CB675000DD44EB /* EditProfileView.swift */; };
 		E4B5F20B29C1106F00BD201D /* Esprit_SpaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B5F20A29C1106F00BD201D /* Esprit_SpaceApp.swift */; };
 		E4B5F20D29C1106F00BD201D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B5F20C29C1106F00BD201D /* ContentView.swift */; };
 		E4B5F20F29C1107000BD201D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4B5F20E29C1107000BD201D /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0AA4E97C29CB675000DD44EB /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		E4B5F20729C1106F00BD201D /* Esprit_Space.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Esprit_Space.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4B5F20A29C1106F00BD201D /* Esprit_SpaceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Esprit_SpaceApp.swift; sourceTree = "<group>"; };
 		E4B5F20C29C1106F00BD201D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				E4B5F23929C1125D00BD201D /* SignupView.swift */,
 				E4B5F23F29C11C5200BD201D /* LoginView.swift */,
 				E4B5F24129C1241600BD201D /* StudentProfileView.swift */,
+				0AA4E97C29CB675000DD44EB /* EditProfileView.swift */,
 			);
 			path = Esprit_Space;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 			files = (
 				E4B5F24029C11C5200BD201D /* LoginView.swift in Sources */,
 				E4B5F24229C1241600BD201D /* StudentProfileView.swift in Sources */,
+				0AA4E97D29CB675000DD44EB /* EditProfileView.swift in Sources */,
 				E4B5F21429C1107000BD201D /* Persistence.swift in Sources */,
 				E4B5F20D29C1106F00BD201D /* ContentView.swift in Sources */,
 				E4B5F20B29C1106F00BD201D /* Esprit_SpaceApp.swift in Sources */,

@@ -24,7 +24,7 @@ struct StudentProfileView: View {
             Image(systemName: "person.crop.circle")
                 .font(.system(size: 120))
                 .foregroundColor(.red)
-                .padding(.top, 30)
+                .padding(.top, 5 )
             
             Text("Safa Hathroubi")
                 .font(.title)
@@ -43,9 +43,7 @@ struct StudentProfileView: View {
                         .padding(.bottom, 5)
                     Text("12")
                         .foregroundColor(.black)
-                        .font(.title)
-                }
-                
+                        .font(.title)}
                 VStack {
                     Text("Class")
                         .foregroundColor(.black)
@@ -53,23 +51,21 @@ struct StudentProfileView: View {
                         .padding(.bottom, 5)
                     Text("4SIM2")
                         .foregroundColor(.black)
-                        .font(.title)
-                }
-            }
-            
-            
+                        .font(.title)}}
             Button(action: {}) {
                 Text("Edit Profile")
                     .foregroundColor(.white)
                     .padding(.vertical, 10)
                     .frame(maxWidth: .infinity)
                     .background(Color.red)
-                    .cornerRadius(10)
-            }
-        }
-        .padding()
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(
+                    .cornerRadius(10)}
+            
+      /* }.padding
+            .frame(maxWidth: .infinity, maxHeight: .infinity) */
+        }.padding()
+         .frame(maxWidth: CGFloat.infinity, maxHeight: CGFloat.infinity)
+
+            .background(
             LinearGradient(
                 gradient: Gradient(
                     colors: [
@@ -82,73 +78,8 @@ struct StudentProfileView: View {
             )
         )
     }
+
 }
 
 
-/*
-struct StudentProfileView: View {
-    @State private var name: String = ""
-    @State private var email: String = ""
-    @State private var age: Int = 0
-    @State private var major: String = ""
     
-    var body: some View {
-        VStack {
-            Text("Student Profile")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .padding(.bottom, 30)
-            
-            Image(systemName: "person.circle.fill")
-                .resizable()
-                .frame(width: 150, height: 150)
-                .padding(.bottom, 30)
-            
-            TextField("Name", text: $name)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding(.bottom, 10)
-            
-            TextField("Last Name", text: $name)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding(.bottom, 10)
-                
-            
-            TextField("Email", text: $email)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding(.bottom, 10)
-            
-            /*
-             Stepper(value: $age, in: 0...100) {
-                Text("Age: \(age)")
-            }
-            .padding(.bottom, 10)
-             */
-            
-            TextField("Date of Birth", text: $email)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding(.bottom, 10)
-            
-            TextField("Major", text: $major)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding(.bottom, 20)
-            
-            Button(action: updateProfile) {
-                Text("Update Profile")
-                    .foregroundColor(.white)
-                    .padding(.vertical, 10)
-                    .frame(maxWidth: .infinity)
-                    .background(Color.red)
-                    .cornerRadius(10)
-            }
-            
-            Spacer()
-        }
-        .padding()
-        .background(Color.white)
-    }
-    
-    func updateProfile() {
-        // TODO: Send update profile request to Node.js server
-    }
-}
-*/

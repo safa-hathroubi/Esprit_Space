@@ -23,7 +23,14 @@ struct LoginView: View {
     @State private var password: String = ""
     
     var body: some View {
-        VStack {
+            ZStack {
+                Image("HD-wallpaper-simple-abstract-design-black-flat-modern-red-shapes-waves-white")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                    .ignoresSafeArea()
+                
+        VStack(spacing: 10) {
             Text("Log in")
                 .font(.largeTitle)
                 .fontWeight(.bold)
@@ -49,8 +56,14 @@ struct LoginView: View {
             NavigationLink(destination: SignupView()) {
                 Text("Don't have an account? Sign up")
             }
-        }
-        .padding()
+        }.padding()
+                //.frame(maxWidth: .infinity)
+                //.background(Color.white)
+                .cornerRadius(10)
+                .padding(.horizontal, 20)
+                .padding(.top, 300)
+                .padding(.bottom, 30)
+            }
     }
     
     func login() {
