@@ -7,9 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03CF3690C264895DF9BBA07A /* Pods_Esprit_SpaceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1840F08C9EECA9637AEC6095 /* Pods_Esprit_SpaceTests.framework */; };
 		0A137FAE29CC51E0001C74B0 /* BottomBar-SwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0A137FAD29CC51E0001C74B0 /* BottomBar-SwiftUI */; };
 		0AA4E97D29CB675000DD44EB /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA4E97C29CB675000DD44EB /* EditProfileView.swift */; };
 		0AA4E97F29CB7ADA00DD44EB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA4E97E29CB7ADA00DD44EB /* HomeView.swift */; };
+		910B94720413FB8DEC0F4E8F /* Pods_Esprit_Space_Esprit_SpaceUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E35455E2E1E9F6624479894 /* Pods_Esprit_Space_Esprit_SpaceUITests.framework */; };
+		A4C908FBACC5E8B63189DC54 /* Pods_Esprit_Space.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BC9BF38828BEF0F5E2C9EAB /* Pods_Esprit_Space.framework */; };
+		D7982CED29D2EEF10005257B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7982CEC29D2EEF10005257B /* User.swift */; };
+		D7982CF029D2F1060005257B /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7982CEF29D2F1060005257B /* UserViewModel.swift */; };
 		E4B5F20B29C1106F00BD201D /* Esprit_SpaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B5F20A29C1106F00BD201D /* Esprit_SpaceApp.swift */; };
 		E4B5F20D29C1106F00BD201D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B5F20C29C1106F00BD201D /* ContentView.swift */; };
 		E4B5F20F29C1107000BD201D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4B5F20E29C1107000BD201D /* Assets.xcassets */; };
@@ -44,6 +49,17 @@
 /* Begin PBXFileReference section */
 		0AA4E97C29CB675000DD44EB /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		0AA4E97E29CB7ADA00DD44EB /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		1840F08C9EECA9637AEC6095 /* Pods_Esprit_SpaceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Esprit_SpaceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		22F4CD1FDF5243DE0E3B0E8D /* Pods-Esprit_Space-Esprit_SpaceUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Esprit_Space-Esprit_SpaceUITests.debug.xcconfig"; path = "Target Support Files/Pods-Esprit_Space-Esprit_SpaceUITests/Pods-Esprit_Space-Esprit_SpaceUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		2C2743BABF3A73FB69D7AE85 /* Pods-Esprit_SpaceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Esprit_SpaceTests.debug.xcconfig"; path = "Target Support Files/Pods-Esprit_SpaceTests/Pods-Esprit_SpaceTests.debug.xcconfig"; sourceTree = "<group>"; };
+		54B148D78FD859F778571382 /* Pods-Esprit_SpaceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Esprit_SpaceTests.release.xcconfig"; path = "Target Support Files/Pods-Esprit_SpaceTests/Pods-Esprit_SpaceTests.release.xcconfig"; sourceTree = "<group>"; };
+		56B45BF10E6EE6AD92A170D3 /* Pods-Esprit_Space-Esprit_SpaceUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Esprit_Space-Esprit_SpaceUITests.release.xcconfig"; path = "Target Support Files/Pods-Esprit_Space-Esprit_SpaceUITests/Pods-Esprit_Space-Esprit_SpaceUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5BC9BF38828BEF0F5E2C9EAB /* Pods_Esprit_Space.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Esprit_Space.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C485F1E4CE09AF4CE04A37C /* Pods-Esprit_Space.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Esprit_Space.debug.xcconfig"; path = "Target Support Files/Pods-Esprit_Space/Pods-Esprit_Space.debug.xcconfig"; sourceTree = "<group>"; };
+		6E35455E2E1E9F6624479894 /* Pods_Esprit_Space_Esprit_SpaceUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Esprit_Space_Esprit_SpaceUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9598009CE4F776EA8E3C383 /* Pods-Esprit_Space.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Esprit_Space.release.xcconfig"; path = "Target Support Files/Pods-Esprit_Space/Pods-Esprit_Space.release.xcconfig"; sourceTree = "<group>"; };
+		D7982CEC29D2EEF10005257B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D7982CEF29D2F1060005257B /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		E4B5F20729C1106F00BD201D /* Esprit_Space.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Esprit_Space.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4B5F20A29C1106F00BD201D /* Esprit_SpaceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Esprit_SpaceApp.swift; sourceTree = "<group>"; };
 		E4B5F20C29C1106F00BD201D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -67,6 +83,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A137FAE29CC51E0001C74B0 /* BottomBar-SwiftUI in Frameworks */,
+				A4C908FBACC5E8B63189DC54 /* Pods_Esprit_Space.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03CF3690C264895DF9BBA07A /* Pods_Esprit_SpaceTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,12 +99,53 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				910B94720413FB8DEC0F4E8F /* Pods_Esprit_Space_Esprit_SpaceUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		37157C9230B6FCDC14893450 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5BC9BF38828BEF0F5E2C9EAB /* Pods_Esprit_Space.framework */,
+				6E35455E2E1E9F6624479894 /* Pods_Esprit_Space_Esprit_SpaceUITests.framework */,
+				1840F08C9EECA9637AEC6095 /* Pods_Esprit_SpaceTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		787DBE5D52292D267419BA29 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5C485F1E4CE09AF4CE04A37C /* Pods-Esprit_Space.debug.xcconfig */,
+				B9598009CE4F776EA8E3C383 /* Pods-Esprit_Space.release.xcconfig */,
+				22F4CD1FDF5243DE0E3B0E8D /* Pods-Esprit_Space-Esprit_SpaceUITests.debug.xcconfig */,
+				56B45BF10E6EE6AD92A170D3 /* Pods-Esprit_Space-Esprit_SpaceUITests.release.xcconfig */,
+				2C2743BABF3A73FB69D7AE85 /* Pods-Esprit_SpaceTests.debug.xcconfig */,
+				54B148D78FD859F778571382 /* Pods-Esprit_SpaceTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		D7982CEB29D2EE5E0005257B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D7982CEC29D2EEF10005257B /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D7982CEE29D2F0BF0005257B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D7982CEF29D2F1060005257B /* UserViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		E4B5F1FE29C1106F00BD201D = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +153,8 @@
 				E4B5F21F29C1107000BD201D /* Esprit_SpaceTests */,
 				E4B5F22929C1107000BD201D /* Esprit_SpaceUITests */,
 				E4B5F20829C1106F00BD201D /* Products */,
+				787DBE5D52292D267419BA29 /* Pods */,
+				37157C9230B6FCDC14893450 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -110,6 +171,8 @@
 		E4B5F20929C1106F00BD201D /* Esprit_Space */ = {
 			isa = PBXGroup;
 			children = (
+				D7982CEE29D2F0BF0005257B /* ViewModel */,
+				D7982CEB29D2EE5E0005257B /* Model */,
 				E4B5F20A29C1106F00BD201D /* Esprit_SpaceApp.swift */,
 				E4B5F20C29C1106F00BD201D /* ContentView.swift */,
 				E4B5F20E29C1107000BD201D /* Assets.xcassets */,
@@ -157,9 +220,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E4B5F23029C1107000BD201D /* Build configuration list for PBXNativeTarget "Esprit_Space" */;
 			buildPhases = (
+				CC3C6EE5E1847DCB9F70ECBD /* [CP] Check Pods Manifest.lock */,
 				E4B5F20329C1106F00BD201D /* Sources */,
 				E4B5F20429C1106F00BD201D /* Frameworks */,
 				E4B5F20529C1106F00BD201D /* Resources */,
+				F351F63E6E0EA1C93EEC52AC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -177,6 +242,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E4B5F23329C1107000BD201D /* Build configuration list for PBXNativeTarget "Esprit_SpaceTests" */;
 			buildPhases = (
+				55B03F0C36EDFD82E8FD9F6A /* [CP] Check Pods Manifest.lock */,
 				E4B5F21829C1107000BD201D /* Sources */,
 				E4B5F21929C1107000BD201D /* Frameworks */,
 				E4B5F21A29C1107000BD201D /* Resources */,
@@ -195,9 +261,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E4B5F23629C1107000BD201D /* Build configuration list for PBXNativeTarget "Esprit_SpaceUITests" */;
 			buildPhases = (
+				5E2339684BAC1E6F79F5BDB6 /* [CP] Check Pods Manifest.lock */,
 				E4B5F22229C1107000BD201D /* Sources */,
 				E4B5F22329C1107000BD201D /* Frameworks */,
 				E4B5F22429C1107000BD201D /* Resources */,
+				4E98B286FA239BC5464E273C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -281,12 +349,116 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4E98B286FA239BC5464E273C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Esprit_Space-Esprit_SpaceUITests/Pods-Esprit_Space-Esprit_SpaceUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Esprit_Space-Esprit_SpaceUITests/Pods-Esprit_Space-Esprit_SpaceUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Esprit_Space-Esprit_SpaceUITests/Pods-Esprit_Space-Esprit_SpaceUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		55B03F0C36EDFD82E8FD9F6A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Esprit_SpaceTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5E2339684BAC1E6F79F5BDB6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Esprit_Space-Esprit_SpaceUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CC3C6EE5E1847DCB9F70ECBD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Esprit_Space-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F351F63E6E0EA1C93EEC52AC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Esprit_Space/Pods-Esprit_Space-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Esprit_Space/Pods-Esprit_Space-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Esprit_Space/Pods-Esprit_Space-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E4B5F20329C1106F00BD201D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				0AA4E97F29CB7ADA00DD44EB /* HomeView.swift in Sources */,
+				D7982CF029D2F1060005257B /* UserViewModel.swift in Sources */,
 				E4B5F24029C11C5200BD201D /* LoginView.swift in Sources */,
 				E4B5F24229C1241600BD201D /* StudentProfileView.swift in Sources */,
 				0AA4E97D29CB675000DD44EB /* EditProfileView.swift in Sources */,
@@ -294,6 +466,7 @@
 				E4B5F20D29C1106F00BD201D /* ContentView.swift in Sources */,
 				E4B5F20B29C1106F00BD201D /* Esprit_SpaceApp.swift in Sources */,
 				E4B5F21729C1107000BD201D /* Esprit_Space.xcdatamodeld in Sources */,
+				D7982CED29D2EEF10005257B /* User.swift in Sources */,
 				E4B5F23A29C1125D00BD201D /* SignupView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -447,6 +620,7 @@
 		};
 		E4B5F23129C1107000BD201D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C485F1E4CE09AF4CE04A37C /* Pods-Esprit_Space.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -475,6 +649,7 @@
 		};
 		E4B5F23229C1107000BD201D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B9598009CE4F776EA8E3C383 /* Pods-Esprit_Space.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -503,6 +678,7 @@
 		};
 		E4B5F23429C1107000BD201D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2C2743BABF3A73FB69D7AE85 /* Pods-Esprit_SpaceTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -522,6 +698,7 @@
 		};
 		E4B5F23529C1107000BD201D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 54B148D78FD859F778571382 /* Pods-Esprit_SpaceTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -541,6 +718,7 @@
 		};
 		E4B5F23729C1107000BD201D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 22F4CD1FDF5243DE0E3B0E8D /* Pods-Esprit_Space-Esprit_SpaceUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -558,6 +736,7 @@
 		};
 		E4B5F23829C1107000BD201D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 56B45BF10E6EE6AD92A170D3 /* Pods-Esprit_Space-Esprit_SpaceUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

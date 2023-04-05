@@ -43,10 +43,7 @@ struct SignupView: View {
                         .font(.largeTitle)
                         .fontWeight(.bold)
                         .padding(.bottom, 30)
-                    
-                    TextField("Name", text: $name)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding(.bottom, 10)
+                
                     
                     TextField("Email", text: $email)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -94,7 +91,8 @@ struct SignupView: View {
         if !isValidEmail(email) {
             errorMessage = "Please enter a valid email address"
             showingAlert = true
-            return
+            return /*{ NavigationLink(destination: HomeView())}*/
+            
         }
         
         if password != confirmPassword {
