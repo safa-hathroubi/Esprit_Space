@@ -20,7 +20,7 @@ class UserViewModel: ObservableObject{
     @Published var isRegistred = false
     private let baseURL = "http://172.17.15.185:5000/"
 
-    func login(email: String, password: String, onSuccess:@escaping (_ token: String)->Void , onFailure:@escaping(_ titre:String,_ message:String)->Void){
+    func login(email: String, password: String, onSuccess:@escaping (_ email: String)->Void , onFailure:@escaping(_ titre:String,_ message:String)->Void){
         AF.request(baseURL+"user/login" ,
                            method: .post,
                            parameters: [ "email" : email, "password" : password ],
@@ -38,22 +38,21 @@ class UserViewModel: ObservableObject{
 
                             switch statusCode {
                             case 200:
-                                guard let token = jsonData["token"] as? String,
-                                      let email = jsonData["email"] as? String,
-                                      let name = jsonData["name"] as? String
+                                guard let email = jsonData["email"] as? String,
+                                      let password = jsonData["password"] as? String
                                 else {
                                     onFailure("Error", "Invalid response format")
                                     return
                                 }
-                                let user = User(email: email,token: token, password: name)
+                                let user = User(email: email,password: password)
                                 self.currentUser = user
                                 // Store token in UserDefaults
-                                UserDefaults.standard.set(token, forKey: "token")
-                                UserDefaults.standard.set(name, forKey: "username")
+                               // UserDefaults.standard.set(token, forKey: "token")
+                                UserDefaults.standard.set(password, forKey: "email")
                                 
                                 // Set isAuthenticated to true and navigate to home page
                                 self.isAuthenticated = true
-                                onSuccess(token)
+                                onSuccess(email)
                                 
                             case 400:
                                 onFailure("Login failed", "Invalid password")
@@ -73,10 +72,10 @@ class UserViewModel: ObservableObject{
             }
 
             
-            func Signup(email: String, password: String, name: String, onSuccess: @escaping (_ title: String, _ message: String) -> Void, onFailure: @escaping (_ title: String, _ message: String) -> Void) {
+            func Signup(email: String, password: String, onSuccess: @escaping (_ title: String, _ message: String) -> Void, onFailure: @escaping (_ title: String, _ message: String) -> Void) {
                 AF.request(baseURL+"user/signup" ,
                            method: .post,
-                           parameters: [ "email" : email, "password" : password, "name" : name ],
+                           parameters: [ "email" : email, "password" : password],
                            encoding: JSONEncoding.default)
                     .validate(statusCode: 200..<401)
                     .validate(contentType: ["application/json"])
@@ -104,6 +103,9 @@ class UserViewModel: ObservableObject{
                         }
                     }
             }
+    
+    
+    
 
             func resetPasswordEmail(email: String, onSuccess: @escaping (_ code: String) -> Void, onFailure: @escaping (_ title: String, _ message: String) -> Void) {
                 AF.request(baseURL + "user/paswordforgot",
@@ -161,7 +163,7 @@ class UserViewModel: ObservableObject{
                     }
             }
 
-            func updateUsername(token: String, username: String , onSuccess: @escaping (_ title: String, _ message: String) -> Void, onFailure: @escaping (_ title: String, _ message: String) -> Void) {
+            func updateUserMail(token: String, username: String , onSuccess: @escaping (_ title: String, _ message: String) -> Void, onFailure: @escaping (_ title: String, _ message: String) -> Void) {
                 AF.request(baseURL + "user/updateUsername",
                            method: .put,
                            parameters: ["token":token ,"username":username ],

@@ -14,18 +14,17 @@ struct SignupView_Previews: PreviewProvider {
     }
 }
 
-
-
-
-
 struct SignupView: View {
     
-    @State private var name: String = ""
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var confirmPassword: String = ""
     @State private var errorMessage: String = ""
     @State private var showingAlert = false
+    @State private var errorTitle = ""
+    @State private var showError = false
+    @ObservedObject var viewModel = UserViewModel()
+    @State private var isShowingLoginView = false
     
     var body: some View {
         NavigationView {
@@ -36,14 +35,11 @@ struct SignupView: View {
                     .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
                     .ignoresSafeArea()
                 
-                
-                
                 VStack(spacing: 10) {
                     Text("Create an Account")
                         .font(.largeTitle)
                         .fontWeight(.bold)
                         .padding(.bottom, 30)
-                
                     
                     TextField("Email", text: $email)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -76,32 +72,21 @@ struct SignupView: View {
                     NavigationLink(destination: LoginView()) {
                         Text("Already have an account? Login")
                     }
+                    
+                    NavigationLink(
+                        destination: LoginView(),
+                        isActive: $isShowingLoginView
+                    ) {
+                        EmptyView()
+                    }
                 }
                 .padding()
-                //.frame(maxWidth: .infinity)
-                //.background(Color.white)
                 .cornerRadius(10)
                 .padding(.horizontal, 20)
                 .padding(.top, 300)
                 .padding(.bottom, 30)
-            }}
-    }
-    
-    func signup() {
-        if !isValidEmail(email) {
-            errorMessage = "Please enter a valid email address"
-            showingAlert = true
-            return /*{ NavigationLink(destination: HomeView())}*/
-            
+            }
         }
-        
-        if password != confirmPassword {
-            errorMessage = "Passwords do not match"
-            showingAlert = true
-            return
-        }
-        
-        // TODO: Send signup request to Node.js server
     }
     
     func isValidEmail(_ email: String) -> Bool {
@@ -109,4 +94,18 @@ struct SignupView: View {
         let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailRegex)
         return emailPredicate.evaluate(with: email)
     }
-}
+    private func signup() {
+        viewModel.Signup(email: email, password: password, onSuccess: { title, message in
+            // Show dialog with title and message
+            errorTitle = title
+            errorMessage = message
+            showError = true
+        }, onFailure: { title, message in
+            // Show dialog with title and message
+            errorTitle = title
+            errorMessage = message
+            showError = true
+        })
+    }
+    }
+    
