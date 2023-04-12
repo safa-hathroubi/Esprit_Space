@@ -18,7 +18,9 @@ struct EditProfileView_Previews: PreviewProvider {
 
 
 struct EditProfileView: View {
-    @State private var password = ""
+    @State private var oldPassword = ""
+    @State private var newPassword = ""
+    @State private var confirmNewPassword = ""
     @State private var address = ""
     @State private var phoneNumber = ""
 
@@ -31,8 +33,9 @@ struct EditProfileView: View {
             
             
             Section(header: Text("Change Password")) {
-                SecureField("New Password", text: $password)
-                SecureField("Confirm Password", text: $password)
+                SecureField("Old Password", text: $oldPassword)
+                SecureField("New Password", text: $newPassword)
+                SecureField("Confirm New Password", text: $confirmNewPassword)
             }
             Section(header: Text("Change Address")) {
                 TextField("Address", text: $address)
@@ -43,6 +46,14 @@ struct EditProfileView: View {
             }
             Button(action: {
                 // Save changes
+                if newPassword == confirmNewPassword {
+                    // Code to update password goes here
+                    oldPassword = ""
+                    newPassword = ""
+                    confirmNewPassword = ""
+                } else {
+                    // Display an error message to the user
+                }
             }) {
                 Text("Save Changes")
             }

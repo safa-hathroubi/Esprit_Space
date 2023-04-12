@@ -8,6 +8,10 @@ struct LoginView: View {
     @State private var errorMessage = ""
     @ObservedObject var viewModel = UserViewModel()
     @State private var isShowingHomeView = false
+    @State private var isReset1Active = false
+
+    
+    
     
     var body: some View {
         NavigationView {
@@ -32,6 +36,8 @@ struct LoginView: View {
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .padding(.bottom, 20)
                     
+                    
+                     
                     Button(action: login) {
                         Text("Login")
                             .foregroundColor(.white)
@@ -44,7 +50,12 @@ struct LoginView: View {
                     NavigationLink(destination: SignupView()) {
                         Text("Don't have an account? Sign up")
                     }
-                    
+               
+                    NavigationLink(destination: ForgetView()) {
+                        Text("Forgot password?")
+                    }
+                  
+                
                     NavigationLink(
                         destination: HomeView(),
                         isActive: $isShowingHomeView
@@ -83,3 +94,5 @@ struct LoginView_Previews: PreviewProvider {
         LoginView()
     }
 }
+
+

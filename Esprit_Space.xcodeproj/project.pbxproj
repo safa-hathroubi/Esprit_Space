@@ -13,6 +13,9 @@
 		0AA4E97F29CB7ADA00DD44EB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA4E97E29CB7ADA00DD44EB /* HomeView.swift */; };
 		910B94720413FB8DEC0F4E8F /* Pods_Esprit_Space_Esprit_SpaceUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E35455E2E1E9F6624479894 /* Pods_Esprit_Space_Esprit_SpaceUITests.framework */; };
 		A4C908FBACC5E8B63189DC54 /* Pods_Esprit_Space.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BC9BF38828BEF0F5E2C9EAB /* Pods_Esprit_Space.framework */; };
+		D766A9A029E6DD260059A807 /* ForgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D766A99F29E6DD260059A807 /* ForgetView.swift */; };
+		D766A9A229E6DD6E0059A807 /* forgot2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D766A9A129E6DD6D0059A807 /* forgot2.swift */; };
+		D766A9A429E6DD800059A807 /* forgot3.swift in Sources */ = {isa = PBXBuildFile; fileRef = D766A9A329E6DD7F0059A807 /* forgot3.swift */; };
 		D7982CED29D2EEF10005257B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7982CEC29D2EEF10005257B /* User.swift */; };
 		D7982CF029D2F1060005257B /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7982CEF29D2F1060005257B /* UserViewModel.swift */; };
 		E4B5F20B29C1106F00BD201D /* Esprit_SpaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B5F20A29C1106F00BD201D /* Esprit_SpaceApp.swift */; };
@@ -58,6 +61,9 @@
 		5C485F1E4CE09AF4CE04A37C /* Pods-Esprit_Space.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Esprit_Space.debug.xcconfig"; path = "Target Support Files/Pods-Esprit_Space/Pods-Esprit_Space.debug.xcconfig"; sourceTree = "<group>"; };
 		6E35455E2E1E9F6624479894 /* Pods_Esprit_Space_Esprit_SpaceUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Esprit_Space_Esprit_SpaceUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9598009CE4F776EA8E3C383 /* Pods-Esprit_Space.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Esprit_Space.release.xcconfig"; path = "Target Support Files/Pods-Esprit_Space/Pods-Esprit_Space.release.xcconfig"; sourceTree = "<group>"; };
+		D766A99F29E6DD260059A807 /* ForgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetView.swift; sourceTree = "<group>"; };
+		D766A9A129E6DD6D0059A807 /* forgot2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = forgot2.swift; sourceTree = "<group>"; };
+		D766A9A329E6DD7F0059A807 /* forgot3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = forgot3.swift; sourceTree = "<group>"; };
 		D7982CEC29D2EEF10005257B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D7982CEF29D2F1060005257B /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		E4B5F20729C1106F00BD201D /* Esprit_Space.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Esprit_Space.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,7 +132,6 @@
 				2C2743BABF3A73FB69D7AE85 /* Pods-Esprit_SpaceTests.debug.xcconfig */,
 				54B148D78FD859F778571382 /* Pods-Esprit_SpaceTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -184,6 +189,9 @@
 				E4B5F24129C1241600BD201D /* StudentProfileView.swift */,
 				0AA4E97C29CB675000DD44EB /* EditProfileView.swift */,
 				0AA4E97E29CB7ADA00DD44EB /* HomeView.swift */,
+				D766A9A129E6DD6D0059A807 /* forgot2.swift */,
+				D766A9A329E6DD7F0059A807 /* forgot3.swift */,
+				D766A99F29E6DD260059A807 /* ForgetView.swift */,
 			);
 			path = Esprit_Space;
 			sourceTree = "<group>";
@@ -458,6 +466,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AA4E97F29CB7ADA00DD44EB /* HomeView.swift in Sources */,
+				D766A9A029E6DD260059A807 /* ForgetView.swift in Sources */,
+				D766A9A429E6DD800059A807 /* forgot3.swift in Sources */,
 				D7982CF029D2F1060005257B /* UserViewModel.swift in Sources */,
 				E4B5F24029C11C5200BD201D /* LoginView.swift in Sources */,
 				E4B5F24229C1241600BD201D /* StudentProfileView.swift in Sources */,
@@ -467,6 +477,7 @@
 				E4B5F20B29C1106F00BD201D /* Esprit_SpaceApp.swift in Sources */,
 				E4B5F21729C1107000BD201D /* Esprit_Space.xcdatamodeld in Sources */,
 				D7982CED29D2EEF10005257B /* User.swift in Sources */,
+				D766A9A229E6DD6E0059A807 /* forgot2.swift in Sources */,
 				E4B5F23A29C1125D00BD201D /* SignupView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
