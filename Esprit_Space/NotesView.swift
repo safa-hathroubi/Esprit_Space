@@ -24,7 +24,7 @@ struct NotesView: View {
                 Color.gray.opacity(0.1).ignoresSafeArea()
                 
                 VStack {
-                    Text("My University Notes")
+                    Text("Affichage des notes iciiiii")
                         .font(.title)
                         .fontWeight(.bold)
                         .foregroundColor(.blue)
@@ -36,7 +36,7 @@ struct NotesView: View {
                     } else {
                         ScrollView {
                             LazyVStack(spacing: 20) {
-                                ForEach(viewModel.notes, id: \.id) { note in
+                                ForEach(viewModel.notes, id: \.iduser) { note in
                                     NoteCard(note: note)
                                 }
                             }

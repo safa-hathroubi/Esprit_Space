@@ -101,11 +101,11 @@ struct HomepageView : View {
         case "Home":
             return AnyView(HomeView())
         case "Likes":
-            return AnyView(Text("unexisting likes View lol"))
+            return AnyView(NotesView())
         case "Profile":
             return AnyView(StudentProfileView())
         default:
-            return AnyView(Text("default View"))
+            return AnyView(TimetableView())
         }
     }
 

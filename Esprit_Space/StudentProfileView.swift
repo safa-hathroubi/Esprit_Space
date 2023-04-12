@@ -65,7 +65,7 @@ struct StudentProfileView: View {
         }.padding()
          .frame(maxWidth: CGFloat.infinity, maxHeight: CGFloat.infinity)
 
-            .background(
+           /* .background(
             LinearGradient(
                 gradient: Gradient(
                     colors: [
@@ -76,7 +76,7 @@ struct StudentProfileView: View {
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing
             )
-        )
+        )*/
     }
 
 }

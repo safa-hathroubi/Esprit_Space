@@ -126,7 +126,7 @@ struct BasiccView: View {
                         EventRow(event: event)
                     }
                 }
-                .navigationTitle("Home/Events")
+                //.navigationTitle("Home/Events")
             }
         }
     }
