@@ -97,12 +97,6 @@ struct BasiccView: View {
     
     */
     
-let items: [BottomBarItem] = [
-    BottomBarItem(icon: "house.fill", title: "Home", color: .purple),
-    BottomBarItem(icon: "heart", title: "Likes", color: .pink),
-    BottomBarItem(icon: "magnifyingglass", title: "Search", color: .orange),
-    BottomBarItem(icon: "person.fill", title: "Profile", color: .blue)
-]
 
     
     

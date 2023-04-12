@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		03CF3690C264895DF9BBA07A /* Pods_Esprit_SpaceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1840F08C9EECA9637AEC6095 /* Pods_Esprit_SpaceTests.framework */; };
 		0A137FAE29CC51E0001C74B0 /* BottomBar-SwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0A137FAD29CC51E0001C74B0 /* BottomBar-SwiftUI */; };
+		0A58D94F29E6DEB300764FD2 /* HomepageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A58D94E29E6DEB300764FD2 /* HomepageView.swift */; };
+		0A58D95129E6E61500764FD2 /* NotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A58D95029E6E61500764FD2 /* NotesView.swift */; };
+		0A58D95329E6E92600764FD2 /* NotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A58D95229E6E92600764FD2 /* NotesViewModel.swift */; };
+		0A58D95529E6EA9900764FD2 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A58D95429E6EA9900764FD2 /* Note.swift */; };
 		0AA4E97D29CB675000DD44EB /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA4E97C29CB675000DD44EB /* EditProfileView.swift */; };
 		0AA4E97F29CB7ADA00DD44EB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA4E97E29CB7ADA00DD44EB /* HomeView.swift */; };
 		910B94720413FB8DEC0F4E8F /* Pods_Esprit_Space_Esprit_SpaceUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E35455E2E1E9F6624479894 /* Pods_Esprit_Space_Esprit_SpaceUITests.framework */; };
@@ -47,6 +51,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A58D94E29E6DEB300764FD2 /* HomepageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageView.swift; sourceTree = "<group>"; };
+		0A58D95029E6E61500764FD2 /* NotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesView.swift; sourceTree = "<group>"; };
+		0A58D95229E6E92600764FD2 /* NotesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewModel.swift; sourceTree = "<group>"; };
+		0A58D95429E6EA9900764FD2 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		0AA4E97C29CB675000DD44EB /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		0AA4E97E29CB7ADA00DD44EB /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		1840F08C9EECA9637AEC6095 /* Pods_Esprit_SpaceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Esprit_SpaceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,7 +134,6 @@
 				2C2743BABF3A73FB69D7AE85 /* Pods-Esprit_SpaceTests.debug.xcconfig */,
 				54B148D78FD859F778571382 /* Pods-Esprit_SpaceTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -134,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				D7982CEC29D2EEF10005257B /* User.swift */,
+				0A58D95429E6EA9900764FD2 /* Note.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -142,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				D7982CEF29D2F1060005257B /* UserViewModel.swift */,
+				0A58D95229E6E92600764FD2 /* NotesViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -184,6 +193,8 @@
 				E4B5F24129C1241600BD201D /* StudentProfileView.swift */,
 				0AA4E97C29CB675000DD44EB /* EditProfileView.swift */,
 				0AA4E97E29CB7ADA00DD44EB /* HomeView.swift */,
+				0A58D94E29E6DEB300764FD2 /* HomepageView.swift */,
+				0A58D95029E6E61500764FD2 /* NotesView.swift */,
 			);
 			path = Esprit_Space;
 			sourceTree = "<group>";
@@ -462,9 +473,13 @@
 				E4B5F24029C11C5200BD201D /* LoginView.swift in Sources */,
 				E4B5F24229C1241600BD201D /* StudentProfileView.swift in Sources */,
 				0AA4E97D29CB675000DD44EB /* EditProfileView.swift in Sources */,
+				0A58D95529E6EA9900764FD2 /* Note.swift in Sources */,
 				E4B5F21429C1107000BD201D /* Persistence.swift in Sources */,
+				0A58D94F29E6DEB300764FD2 /* HomepageView.swift in Sources */,
 				E4B5F20D29C1106F00BD201D /* ContentView.swift in Sources */,
+				0A58D95329E6E92600764FD2 /* NotesViewModel.swift in Sources */,
 				E4B5F20B29C1106F00BD201D /* Esprit_SpaceApp.swift in Sources */,
+				0A58D95129E6E61500764FD2 /* NotesView.swift in Sources */,
 				E4B5F21729C1107000BD201D /* Esprit_Space.xcdatamodeld in Sources */,
 				D7982CED29D2EEF10005257B /* User.swift in Sources */,
 				E4B5F23A29C1125D00BD201D /* SignupView.swift in Sources */,
