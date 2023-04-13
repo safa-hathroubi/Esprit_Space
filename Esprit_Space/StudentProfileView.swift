@@ -18,9 +18,14 @@ struct StudentProfileView_Previews: PreviewProvider {
 
 
 struct StudentProfileView: View {
+    //@State private var isShowingEditProfileView = false
+    
+    @State private var isReset4Active = false
+
     @State private var email: String = ""
     var body: some View {
         VStack(spacing: 20) {
+           
             Image(systemName: "person.crop.circle")
                 .font(.system(size: 120))
                 .foregroundColor(.red)
@@ -59,10 +64,17 @@ struct StudentProfileView: View {
                     .frame(maxWidth: .infinity)
                     .background(Color.red)
                     .cornerRadius(10)}
+            .background(
+                            NavigationLink(
+                                 destination: EditProfileView(),
+                                 isActive: $isReset4Active
+                             ) { EmptyView() }
+                             .hidden()
+                         )
             
       /* }.padding
             .frame(maxWidth: .infinity, maxHeight: .infinity) */
-        }.padding()
+                }.padding()
          .frame(maxWidth: CGFloat.infinity, maxHeight: CGFloat.infinity)
 
             .background(

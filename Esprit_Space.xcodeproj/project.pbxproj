@@ -9,7 +9,12 @@
 /* Begin PBXBuildFile section */
 		03CF3690C264895DF9BBA07A /* Pods_Esprit_SpaceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1840F08C9EECA9637AEC6095 /* Pods_Esprit_SpaceTests.framework */; };
 		0A137FAE29CC51E0001C74B0 /* BottomBar-SwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0A137FAD29CC51E0001C74B0 /* BottomBar-SwiftUI */; };
-		0AA4E97D29CB675000DD44EB /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA4E97C29CB675000DD44EB /* EditProfileView.swift */; };
+		0A8651E529E81FFF00F1C24F /* HomepageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8651E429E81FFF00F1C24F /* HomepageView.swift */; };
+		0A8651E729E820FD00F1C24F /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8651E629E820FD00F1C24F /* EditProfileView.swift */; };
+		0A8651E929E8214B00F1C24F /* NotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8651E829E8214B00F1C24F /* NotesViewModel.swift */; };
+		0A8651EB29E8216900F1C24F /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8651EA29E8216900F1C24F /* Note.swift */; };
+		0A8651ED29E8219C00F1C24F /* NotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8651EC29E8219C00F1C24F /* NotesView.swift */; };
+		0A8651EF29E821CE00F1C24F /* TimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8651EE29E821CE00F1C24F /* TimetableView.swift */; };
 		0AA4E97F29CB7ADA00DD44EB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA4E97E29CB7ADA00DD44EB /* HomeView.swift */; };
 		910B94720413FB8DEC0F4E8F /* Pods_Esprit_Space_Esprit_SpaceUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E35455E2E1E9F6624479894 /* Pods_Esprit_Space_Esprit_SpaceUITests.framework */; };
 		A4C908FBACC5E8B63189DC54 /* Pods_Esprit_Space.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BC9BF38828BEF0F5E2C9EAB /* Pods_Esprit_Space.framework */; };
@@ -50,7 +55,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0AA4E97C29CB675000DD44EB /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		0A8651E429E81FFF00F1C24F /* HomepageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageView.swift; sourceTree = "<group>"; };
+		0A8651E629E820FD00F1C24F /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		0A8651E829E8214B00F1C24F /* NotesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewModel.swift; sourceTree = "<group>"; };
+		0A8651EA29E8216900F1C24F /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		0A8651EC29E8219C00F1C24F /* NotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesView.swift; sourceTree = "<group>"; };
+		0A8651EE29E821CE00F1C24F /* TimetableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableView.swift; sourceTree = "<group>"; };
 		0AA4E97E29CB7ADA00DD44EB /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		1840F08C9EECA9637AEC6095 /* Pods_Esprit_SpaceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Esprit_SpaceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		22F4CD1FDF5243DE0E3B0E8D /* Pods-Esprit_Space-Esprit_SpaceUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Esprit_Space-Esprit_SpaceUITests.debug.xcconfig"; path = "Target Support Files/Pods-Esprit_Space-Esprit_SpaceUITests/Pods-Esprit_Space-Esprit_SpaceUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -139,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				D7982CEC29D2EEF10005257B /* User.swift */,
+				0A8651EA29E8216900F1C24F /* Note.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -147,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				D7982CEF29D2F1060005257B /* UserViewModel.swift */,
+				0A8651E829E8214B00F1C24F /* NotesViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -183,11 +195,14 @@
 				E4B5F20E29C1107000BD201D /* Assets.xcassets */,
 				E4B5F21329C1107000BD201D /* Persistence.swift */,
 				E4B5F21529C1107000BD201D /* Esprit_Space.xcdatamodeld */,
+				0A8651EE29E821CE00F1C24F /* TimetableView.swift */,
 				E4B5F21029C1107000BD201D /* Preview Content */,
 				E4B5F23929C1125D00BD201D /* SignupView.swift */,
+				0A8651EC29E8219C00F1C24F /* NotesView.swift */,
+				0A8651E629E820FD00F1C24F /* EditProfileView.swift */,
+				0A8651E429E81FFF00F1C24F /* HomepageView.swift */,
 				E4B5F23F29C11C5200BD201D /* LoginView.swift */,
 				E4B5F24129C1241600BD201D /* StudentProfileView.swift */,
-				0AA4E97C29CB675000DD44EB /* EditProfileView.swift */,
 				0AA4E97E29CB7ADA00DD44EB /* HomeView.swift */,
 				D766A9A129E6DD6D0059A807 /* forgot2.swift */,
 				D766A9A329E6DD7F0059A807 /* forgot3.swift */,
@@ -465,18 +480,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A8651E729E820FD00F1C24F /* EditProfileView.swift in Sources */,
 				0AA4E97F29CB7ADA00DD44EB /* HomeView.swift in Sources */,
 				D766A9A029E6DD260059A807 /* ForgetView.swift in Sources */,
 				D766A9A429E6DD800059A807 /* forgot3.swift in Sources */,
+				0A8651EB29E8216900F1C24F /* Note.swift in Sources */,
+				0A8651E929E8214B00F1C24F /* NotesViewModel.swift in Sources */,
 				D7982CF029D2F1060005257B /* UserViewModel.swift in Sources */,
 				E4B5F24029C11C5200BD201D /* LoginView.swift in Sources */,
+				0A8651ED29E8219C00F1C24F /* NotesView.swift in Sources */,
 				E4B5F24229C1241600BD201D /* StudentProfileView.swift in Sources */,
-				0AA4E97D29CB675000DD44EB /* EditProfileView.swift in Sources */,
 				E4B5F21429C1107000BD201D /* Persistence.swift in Sources */,
 				E4B5F20D29C1106F00BD201D /* ContentView.swift in Sources */,
 				E4B5F20B29C1106F00BD201D /* Esprit_SpaceApp.swift in Sources */,
 				E4B5F21729C1107000BD201D /* Esprit_Space.xcdatamodeld in Sources */,
+				0A8651EF29E821CE00F1C24F /* TimetableView.swift in Sources */,
 				D7982CED29D2EEF10005257B /* User.swift in Sources */,
+				0A8651E529E81FFF00F1C24F /* HomepageView.swift in Sources */,
 				D766A9A229E6DD6E0059A807 /* forgot2.swift in Sources */,
 				E4B5F23A29C1125D00BD201D /* SignupView.swift in Sources */,
 			);

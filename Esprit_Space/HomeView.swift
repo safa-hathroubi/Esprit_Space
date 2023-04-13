@@ -4,6 +4,12 @@
 //
 //  Created by safa hathroubi on 22/3/2023.
 //
+//
+//  HomeView.swift
+//  Esprit_Space
+//
+//  Created by safa hathroubi on 22/3/2023.
+//
 
 /*
 struct HomeView_Previews: PreviewProvider {
@@ -97,12 +103,6 @@ struct BasiccView: View {
     
     */
     
-let items: [BottomBarItem] = [
-    BottomBarItem(icon: "house.fill", title: "Home", color: .purple),
-    BottomBarItem(icon: "heart", title: "Likes", color: .pink),
-    BottomBarItem(icon: "magnifyingglass", title: "Search", color: .orange),
-    BottomBarItem(icon: "person.fill", title: "Profile", color: .blue)
-]
 
     
     
@@ -132,7 +132,7 @@ let items: [BottomBarItem] = [
                         EventRow(event: event)
                     }
                 }
-                .navigationTitle("Home/Events")
+                //.navigationTitle("Home/Events")
             }
         }
     }
@@ -213,25 +213,6 @@ let items: [BottomBarItem] = [
     
     
   
-
-/*
-    struct ContentView : View {
-        @State private var selectedIndex: Int = 0
-        
-        var selectedItem: BottomBarItem {
-            items[selectedIndex]
-        }
-        
-        var body: some View {
-            NavigationView {
-                VStack {
-                    BasiccView(item: selectedItem)
-                        .navigationBarTitle(Text(selectedItem.title))
-                    BottomBar(selectedIndex: $selectedIndex, items: items)
-                }
-            }
-        }
-    }*/
     
     
     

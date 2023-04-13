@@ -57,7 +57,7 @@ struct LoginView: View {
                   
                 
                     NavigationLink(
-                        destination: HomeView(),
+                        destination: HomepageView(),
                         isActive: $isShowingHomeView
                     ) {
                         EmptyView()

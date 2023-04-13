@@ -100,7 +100,7 @@ struct forgot3: View {
        }
        
        private func reset() {
-           viewModel.resetPassword(email: self.email, password : password , onSuccess: { title, message in
+           viewModel.resetPassword(email: self.email, password : password ,  onSuccess: { title, message in
                alertTitle = title
                alertMessage = message
                isShowingAlert = true

@@ -18,7 +18,7 @@ class UserViewModel: ObservableObject{
     @Published var isLoading: Bool = false
     @Published var isAuthenticated = false
     @Published var isRegistred = false
-    private let baseURL = "http://172.17.3.62:5000/"
+    private let baseURL = "http://172.17.11.175:5000/"
     
     func login(email: String, password: String, onSuccess:@escaping (_ email: String)->Void , onFailure:@escaping(_ titre:String,_ message:String)->Void){
         AF.request(baseURL+"user/login" ,
@@ -72,7 +72,7 @@ class UserViewModel: ObservableObject{
     }
     
     func verifyOTP(email: String, otp: String, onSuccess: @escaping () -> Void, onFailure: @escaping (_ title: String, _ message: String) -> Void) {
-        AF.request("http://172.17.3.62:5000/user/verifyotp",
+        AF.request("http://172.17.11.175:5000/user/verifyotp",
                    method: .post,
                    parameters: ["email": email ,"otp": otp],
                    encoding: JSONEncoding.default)
@@ -164,12 +164,12 @@ class UserViewModel: ObservableObject{
         }
     }
     
-    func resetPassword(email: String, password: String, onSuccess: @escaping (_ title: String, _ message: String) -> Void, onFailure: @escaping (_ title: String, _ message: String) -> Void) {
-        AF.request(baseURL + "user/resetPassword",
+    func resetPassword(email: String, password: String,  onSuccess: @escaping (_ title: String, _ message: String) -> Void, onFailure: @escaping (_ title: String, _ message: String) -> Void) {
+        AF.request(baseURL + "user/resetpassword",
                    method: .post,
-                   parameters: ["email": email , "password" : password],
+                   parameters: ["email": email ,"newPassword" : password ],
                    encoding: JSONEncoding.default)
-        .validate(statusCode: 200..<401)
+        .validate(statusCode: 200..<405)
         .validate(contentType: ["application/json"])
         .responseJSON { response in
             switch response.result {
@@ -187,7 +187,7 @@ class UserViewModel: ObservableObject{
                 case 400:
                     onSuccess("Error", "something went wrong please try again")
                 default:
-                    onFailure("Error", "something went wrong please try again")
+                    onFailure("Error", "user not found")
                     
                 }
             case .failure(let error):
@@ -256,7 +256,7 @@ class UserViewModel: ObservableObject{
     
     
     func forgotPassword(email: String, onSuccess: @escaping () -> Void, onFailure: @escaping (_ title: String, _ message: String) -> Void) {
-        AF.request("http://172.17.3.62:5000/user/forgotPassword",
+        AF.request("http://172.17.11.175:5000/user/forgotPassword",
                    method: .post,
                    parameters: ["email": email],
                    encoding: JSONEncoding.default)
