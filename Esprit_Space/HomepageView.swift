@@ -28,10 +28,11 @@ import SwiftUI
 import BottomBar_SwiftUI
 
 let items: [BottomBarItem] = [
-    BottomBarItem(icon: "house.fill", title: "Home", color: .purple),
-    BottomBarItem(icon: "heart", title: "Likes", color: .pink),
-    BottomBarItem(icon: "magnifyingglass", title: "Search", color: .orange),
-    BottomBarItem(icon: "person.fill", title: "Profile", color: .blue)
+    BottomBarItem(icon: "star.fill", title: "Events", color: .pink),
+    BottomBarItem(icon: "list.bullet", title: "Notes", color: .purple),
+    BottomBarItem(icon: "house.fill", title: "", color: .blue),
+    BottomBarItem(icon: "square", title: "Timetable", color: .green),
+    BottomBarItem(icon: "person.fill", title: "Profile", color: .orange)
 ]
 
 struct BasicView: View {
@@ -41,19 +42,7 @@ struct BasicView: View {
     "\(item.title) Detail"
 }
 
-var followButton: some View {
-    Button(action: openTwitter) {
-        VStack {
-            Text("Developed by Bezhan Odinaev")
-                .font(.headline)
-                .foregroundColor(item.color)
 
-            Text("@smartvipere75")
-                .font(.subheadline)
-                .foregroundColor(.gray)
-        }
-    }
-}
 
 var destination: some View {
     Text(detailText)
@@ -76,18 +65,12 @@ var navigateButton: some View {
     }
 }
 
-func openTwitter() {
-    guard let url = URL(string: "https://twitter.com/smartvipere75") else {
-        return
-    }
-    UIApplication.shared.open(url, options: [:], completionHandler: nil)
-}
+
 
 var body: some View {
     VStack {
         Spacer()
 
-        followButton
 
         Spacer()
 
@@ -106,14 +89,16 @@ struct HomepageView : View {
     
     var destinationView: AnyView {
         switch selectedItem.title {
-        case "Home":
+        case "Events":
             return AnyView(HomeView())
-        case "Likes":
+        case "Notes":
             return AnyView(NotesView())
+        case "Timetable":
+            return AnyView(TimetableView())
         case "Profile":
             return AnyView(StudentProfileView())
         default:
-            return AnyView(TimetableView())
+            return AnyView(HomeView())
         }
     }
 
