@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		03CF3690C264895DF9BBA07A /* Pods_Esprit_SpaceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1840F08C9EECA9637AEC6095 /* Pods_Esprit_SpaceTests.framework */; };
 		0A137FAE29CC51E0001C74B0 /* BottomBar-SwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0A137FAD29CC51E0001C74B0 /* BottomBar-SwiftUI */; };
+		0A2461CD29EC22560044D94B /* ClasseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2461CC29EC22560044D94B /* ClasseViewModel.swift */; };
+		0A2461CF29EC22600044D94B /* Classe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2461CE29EC22600044D94B /* Classe.swift */; };
 		0A8651E529E81FFF00F1C24F /* HomepageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8651E429E81FFF00F1C24F /* HomepageView.swift */; };
 		0A8651E729E820FD00F1C24F /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8651E629E820FD00F1C24F /* EditProfileView.swift */; };
 		0A8651E929E8214B00F1C24F /* NotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8651E829E8214B00F1C24F /* NotesViewModel.swift */; };
@@ -55,6 +57,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A2461CC29EC22560044D94B /* ClasseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClasseViewModel.swift; sourceTree = "<group>"; };
+		0A2461CE29EC22600044D94B /* Classe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classe.swift; sourceTree = "<group>"; };
 		0A8651E429E81FFF00F1C24F /* HomepageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageView.swift; sourceTree = "<group>"; };
 		0A8651E629E820FD00F1C24F /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		0A8651E829E8214B00F1C24F /* NotesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewModel.swift; sourceTree = "<group>"; };
@@ -150,6 +154,7 @@
 			children = (
 				D7982CEC29D2EEF10005257B /* User.swift */,
 				0A8651EA29E8216900F1C24F /* Note.swift */,
+				0A2461CE29EC22600044D94B /* Classe.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -159,6 +164,7 @@
 			children = (
 				D7982CEF29D2F1060005257B /* UserViewModel.swift */,
 				0A8651E829E8214B00F1C24F /* NotesViewModel.swift */,
+				0A2461CC29EC22560044D94B /* ClasseViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -495,8 +501,10 @@
 				E4B5F20B29C1106F00BD201D /* Esprit_SpaceApp.swift in Sources */,
 				E4B5F21729C1107000BD201D /* Esprit_Space.xcdatamodeld in Sources */,
 				0A8651EF29E821CE00F1C24F /* TimetableView.swift in Sources */,
+				0A2461CD29EC22560044D94B /* ClasseViewModel.swift in Sources */,
 				D7982CED29D2EEF10005257B /* User.swift in Sources */,
 				0A8651E529E81FFF00F1C24F /* HomepageView.swift in Sources */,
+				0A2461CF29EC22600044D94B /* Classe.swift in Sources */,
 				D766A9A229E6DD6E0059A807 /* forgot2.swift in Sources */,
 				E4B5F23A29C1125D00BD201D /* SignupView.swift in Sources */,
 			);

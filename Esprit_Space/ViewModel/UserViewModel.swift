@@ -18,7 +18,7 @@ class UserViewModel: ObservableObject{
     @Published var isLoading: Bool = false
     @Published var isAuthenticated = false
     @Published var isRegistred = false
-    private let baseURL = "http://172.17.11.175:5000/"
+    private let baseURL = "http://172.17.0.234:5000/"
     
     func login(email: String, password: String, onSuccess:@escaping (_ email: String)->Void , onFailure:@escaping(_ titre:String,_ message:String)->Void){
         AF.request(baseURL+"user/login" ,
@@ -39,17 +39,54 @@ class UserViewModel: ObservableObject{
                 switch statusCode {
                 case 200:
                     guard let email = jsonData["email"] as? String,
-                          let password = jsonData["password"] as? String
+                          let password = jsonData["password"] as? String,
+                            let classe = jsonData["classe"] as? String,
+                            let name = jsonData["name"] as? String
+
+
                     else {
                         onFailure("Error", "Invalid response format")
                         return
                     }
-                    let user = User(email: email,password: password)
+                    let user = User(email: email,password: password,classe: nil, name: nil)
                     self.currentUser = user
                     // Store token in UserDefaults
                     // UserDefaults.standard.set(token, forKey: "token")
-                    UserDefaults.standard.set(password, forKey: "email")
+                    print(email)
+                    print(classe)
                     
+                    let user2 = User(email: email, password: password, classe: classe, name: name)
+                    
+                    let encoder = JSONEncoder()
+
+                    if let encodedPerson = try? encoder.encode(user2) {
+                        // Stocker les données encodées dans UserDefaults
+                        UserDefaults.standard.set(encodedPerson, forKey: "user")
+                        
+                        
+                    }
+                    
+                    if let data = UserDefaults.standard.data(forKey: "user") {
+                        // Décoder les données en utilisant JSONDecoder
+                           let decoder = JSONDecoder()
+                           if let decodedPerson = try? decoder.decode(User.self, from: data) {
+                               // Utiliser l'instance de Person décoder
+                               print(decodedPerson.email) // Output: "Alice"
+                               print(decodedPerson.classe) // Output: 25
+                               print(decodedPerson.name) // Output: 25
+                           }
+                       }
+
+
+                  /*  UserDefaults.standard.set(email, forKey: "email")
+                    UserDefaults.standard.set(password, forKey: "password")
+                    UserDefaults.standard.set(classe, forKey: "classe")
+                    UserDefaults.standard.synchronize()
+
+                    let email2 = UserDefaults.standard .data(forKey: "email")
+                    UserDefaults.standard.synchronize()
+                    print(email2)
+                    let password2 = UserDefaults.standard .data(forKey: "password")*/
                     // Set isAuthenticated to true and navigate to home page
                     self.isAuthenticated = true
                     onSuccess(email)
@@ -221,10 +258,10 @@ class UserViewModel: ObservableObject{
         }
     }
     
-    func updatepassword(token: String, password: String ,newpassword: String , onSuccess: @escaping (_ title: String, _ message: String) -> Void, onFailure: @escaping (_ title: String, _ message: String) -> Void) {
+    func updatepassword(email: String, password: String ,newpassword: String , onSuccess: @escaping (_ title: String, _ message: String) -> Void, onFailure: @escaping (_ title: String, _ message: String) -> Void) {
         AF.request(baseURL + "user/updatePassword",
                    method: .put,
-                   parameters: ["token":token ,"password":password,"newpassword":newpassword ],
+                   parameters: ["token":email ,"password":password,"newpassword":newpassword ],
                    encoding: JSONEncoding.default)
         .validate(statusCode: 200..<403)
         .validate(contentType: ["application/json"])

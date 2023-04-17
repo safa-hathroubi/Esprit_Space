@@ -125,6 +125,8 @@ struct BasiccView: View {
         //var dismiss: () -> Void
         let events = [        Event(name: "Ramadhan Iftar", image: "ramadan-iftar", date: Date(), organizer: "Esprit Engineering", description: "Celebrate the start of Ramadhan with a delicious iftar shared together with your friends. PS: Hot mean + dessert included in the menu!", price: 10.00),        Event(name: "Charityyy Run", image: "Marathon_mock_poster", date: Date(), organizer: "Esprit IEEE Club", description: "Join us for a 5k run to raise money for local charities. All ages and skill levels welcome! ", price: 5.00)    ]
         
+        
+        
         var body: some View {
             NavigationView {
                 List(events) { event in

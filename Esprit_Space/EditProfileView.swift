@@ -1,54 +1,133 @@
 //
-//  EditProfileView.swift
-//  Esprit_Space
+//  forgot3.swift
+//  login
 //
-//  Created by safa hathroubi on 13/4/2023.
+//  Created by Floki on 11/4/2023.
 //
 
 import SwiftUI
 
+struct EditProfileView: View {
+    var email: String
+       @State private var password: String = ""
+       @State private var confirmpassword: String = ""
+       @State private var isLoading = false
+       @State private var isShowingAlert = false
+       @State private var alertTitle: String = ""
+       @State private var alertMessage: String = ""
+       @ObservedObject var viewModel = UserViewModel()
+       @Environment(\.presentationMode) var presentationMode
+       
+       var body: some View {
+           
+           VStack {
+               Image("Authentication-rafiki")
+                   .resizable()
+                   .frame(width: 300, height: 300 , alignment: .center)
+                   .padding(.horizontal, 20)
+                   .padding(.top,50)
+            
+                   
+                                   
+               
+               Text("Enter your new password")
+                                   .font(.headline)
+                                   .foregroundColor(.black)
+                                   .padding(.top,10)
+               
+               TextField("New Password", text: $password)
+                   .frame(height: 50)
+                   .foregroundColor(.black)
+                   .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 15))
+                   .textFieldStyle(PlainTextFieldStyle())
+                   .background(Color(.systemGray6).opacity(0.7))
+                   .cornerRadius(30)
+                   .padding(.horizontal,20)
+                   .padding(.top,30)
+               
+               TextField("Confirm Password", text: $confirmpassword)
+                   .frame(height: 50)
+                   .foregroundColor(.black)
+                   .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 15))
+                   .textFieldStyle(PlainTextFieldStyle())
+                   .background(Color(.systemGray6).opacity(0.7))
+                   .cornerRadius(30)
+                   .padding(.horizontal,20)
+                   .padding(.top,15)
+               
+
+               Button(
+                   action: {
+                       // Perform sign up action
+                       withAnimation {
+                           isLoading = true
+                           DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                               isLoading = false
+                               if validate(password: password, confirmPassword: confirmpassword){
+                                   reset()
+                               }
+                               else {
+                                   
+                               }
+                           }
+                       }
+                   }) {
+                       if isLoading {
+                           ProgressView()
+                               .progressViewStyle(CircularProgressViewStyle(tint: .blue))
+                               .scaleEffect(2)
+                               .padding()
+                       } else {
+                           Text("Save")
+                               .padding(.horizontal,110)
+                               .foregroundColor(.white)
+                               .padding()
+                               .background(Color.red)
+                               .cornerRadius(30)
+                               .frame(maxWidth: .infinity)
+                           
+                       }
+                   }
+                   .padding(.horizontal, 20)
+                   .padding(.top, 40)
+               
+               Spacer()
+           }
+           .alert(isPresented: $isShowingAlert) {
+               Alert(title: Text(alertTitle).foregroundColor(.red), message: Text(alertMessage), dismissButton: .default(Text("OK")))
+              }
+           
+       }
+       
+       private func reset() {
+           viewModel.resetPassword(email: self.email, password : password ,  onSuccess: { title, message in
+               alertTitle = title
+               alertMessage = message
+               isShowingAlert = true
+           }, onFailure: { title, message in
+               alertTitle = title
+               alertMessage = message
+               isShowingAlert = true
+           })
+       }
+           
+       
+       func validate(password: String, confirmPassword: String) -> Bool {
+           if password != confirmPassword {
+                   alertTitle = "Passwords don't match"
+                   alertMessage = "Please make sure your passwords match and try again."
+                   isShowingAlert = true
+                   return false
+               } else {
+                   return true
+               }
+       }
+       
+
+   }
 
 struct EditProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        EditProfileView()
+        forgot3(email:"emna")
     }
-}
-
-
-
-
-struct EditProfileView: View {
-    @State private var password = ""
-    @State private var address = ""
-    @State private var phoneNumber = ""
-
-    var body: some View {
-        Form {
-            Text("Edit Profile")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .padding(.bottom,5)
-            
-            
-            Section(header: Text("Change Password")) {
-                SecureField("New Password", text: $password)
-                SecureField("Confirm Password", text: $password)
-            }
-            Section(header: Text("Change Address")) {
-                TextField("Address", text: $address)
-            }
-            Section(header: Text("Change Phone Number")) {
-                TextField("Phone Number", text: $phoneNumber)
-                    .keyboardType(.phonePad)
-            }
-            Button(action: {
-                // Save changes
-            }) {
-                Text("Save Changes")
-            }
-        }
-        .navigationTitle("Edit Profile")
-    }
-}
-
-
+ }
