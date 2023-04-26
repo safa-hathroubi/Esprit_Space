@@ -8,7 +8,7 @@
 import Foundation
 struct Evenement: Codable {
     let name: String
-    let image: String?
+    let imageURL: String
     let date: String
     let organizer: String
     let description: String
@@ -17,7 +17,7 @@ struct Evenement: Codable {
     
     enum CodingKeys: String, CodingKey {
         case name
-        case image
+        case imageURL
         case date
         case organizer
         case description

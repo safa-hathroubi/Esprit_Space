@@ -77,6 +77,11 @@ import SwiftUI
         }
     }
     
+
+
+
+
+
     struct EventDetail: View {
         let event: Event
         

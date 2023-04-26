@@ -15,10 +15,9 @@ struct EventsUIView_Previews: PreviewProvider {
 }
 
 
-
-struct EventRowView: View {
+/*EVENT ROW WITHOUT IMAGE
+ struct EventRowView: View {
     let event: Evenement
-    
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             Text(event.name)
@@ -30,7 +29,6 @@ struct EventRowView: View {
                 Image(systemName: "calendar.circle")
                 Text(event.date)
                 Text(event.price)
-                
             }
             .foregroundColor(.gray)
         }
@@ -38,6 +36,53 @@ struct EventRowView: View {
         .background(Color.white)
         .cornerRadius(10)
         .shadow(radius: 5)
+    }
+}*/
+
+
+//EVENT ROW WITH IMAGE
+struct EventRowView: View {
+    let event: Evenement
+   
+    var body: some View {
+        HStack {
+            // Display the image
+            AsyncImage(url: URL(string: event.imageURL)) { phase in
+                switch phase {
+                case .empty:
+                    ProgressView()
+                case .success(let image):
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 80, height: 80)
+                        .cornerRadius(10)
+                case .failure:
+                    Image(systemName: "exclamationmark.triangle")
+                @unknown default:
+                    EmptyView()
+                }
+            }
+            .frame(width: 80, height: 80)
+            .padding(.trailing, 10)
+            
+            VStack(alignment: .leading, spacing: 10) {
+                Text(event.name)
+                    .font(.headline)
+                Text(event.description)
+                    .font(.subheadline)
+                    .foregroundColor(.gray)
+                HStack {
+                    Image(systemName: "calendar.circle")
+                    Text(event.date)
+                }
+                .foregroundColor(.gray)
+            }
+            .padding()
+            .background(Color.white)
+            .cornerRadius(10)
+            .shadow(radius: 5)
+        }
     }
 }
 
