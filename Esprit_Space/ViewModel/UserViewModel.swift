@@ -18,7 +18,7 @@ class UserViewModel: ObservableObject{
     @Published var isLoading: Bool = false
     @Published var isAuthenticated = false
     @Published var isRegistred = false
-    private let baseURL = "http://172.17.0.234:5000/"
+    private let baseURL = "http://172.17.9.153:5000/"
     
     func login(email: String, password: String, onSuccess:@escaping (_ email: String)->Void , onFailure:@escaping(_ titre:String,_ message:String)->Void){
         AF.request(baseURL+"user/login" ,
@@ -32,7 +32,7 @@ class UserViewModel: ObservableObject{
             case .success(let data):
                 guard let jsonData = data as? [String: Any],
                       let statusCode = response.response?.statusCode else {
-                    onFailure("Error", "Invalid response format")
+                    onFailure("Error", "Invalid response format11")
                     return
                 }
                 
@@ -45,7 +45,7 @@ class UserViewModel: ObservableObject{
 
 
                     else {
-                        onFailure("Error", "Invalid response format")
+                        onFailure("Error", "Invalid response format22")
                         return
                     }
                     let user = User(email: email,password: password,classe: nil, name: nil)

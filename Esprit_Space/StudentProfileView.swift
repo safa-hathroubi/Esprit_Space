@@ -111,11 +111,11 @@ struct StudentProfileView: View {
             
             HStack(spacing: 30) {
                 VStack {
-                    Text("Courses Taken")
+                    Text(" Absence")
                         .foregroundColor(.black)
                         .font(.headline)
                         .padding(.bottom, 5)
-                    Text("12")
+                    Text("1")
                         .foregroundColor(.black)
                     .font(.title)}
                 VStack {
@@ -207,7 +207,7 @@ struct StudentProfileView: View {
                 }.padding()
          .frame(maxWidth: CGFloat.infinity, maxHeight: CGFloat.infinity)
 
-            .background(
+            .background(/*
             LinearGradient(
                 gradient: Gradient(
                     colors: [
@@ -217,7 +217,7 @@ struct StudentProfileView: View {
                     ]),
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing
-            )
+            )*/
         )
     }
 
