@@ -11,98 +11,12 @@
 //  Created by safa hathroubi on 22/3/2023.
 //
 
-/*
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
-    }
-}
-
-
-
-import SwiftUI
-
-struct Event: Identifiable {
-    var id = UUID()
-    var name: String
-    var date: String
-}
-
-let events = [
-    Event(name: "Event 1", date: "Mon, Mar 28"),
-    Event(name: "Event 2", date: "Tue, Mar 29"),
-    Event(name: "Event 3", date: "Wed, Mar 30"),
-    Event(name: "Event 4", date: "Thu, Mar 31"),
-    Event(name: "Event 5", date: "Fri, Apr 1"),
-    Event(name: "Event 6", date: "Sat, Apr 2"),
-    Event(name: "Event 7", date: "Sun, Apr 3")
-]
-
-struct HomeView: View {
-    var body: some View {
-        NavigationView {
-            ScrollView {
-                VStack(alignment: .leading, spacing: 10) {
-                    ForEach(events) { event in
-                        EventRow(event: event)
-                    }
-                }
-                .padding(.horizontal)
-            }
-            .navigationBarTitle("Events")
-        }
-    }
-}
-
-struct EventRow: View {
-    var event: Event
-    
-    var body: some View {
-        HStack(alignment: .center, spacing: 10) {
-            VStack(alignment: .leading, spacing: 5) {
-                Text(event.name)
-                    .font(.headline)
-                Text(event.date)
-                    .font(.subheadline)
-            }
-            Spacer()
-            Image(systemName: "chevron.right")
-                .foregroundColor(.gray)
-        }
-        .padding(10)
-        .background(Color.white)
-        .cornerRadius(10)
-        .shadow(color: Color.gray.opacity(0.4), radius: 5, x: 0, y: 2)
-    }
-}
-*/
-
 
 
 import BottomBar_SwiftUI
 
 import SwiftUI
-/*
-import BottomBar_SwiftUI
 
-
-// array of items for the bottom bar
-let items: [BottomBarItem] = [
-    BottomBarItem(icon: "house.fill", title: "Home", color: .purple),
-    BottomBarItem(icon: "heart", title: "Likes", color: .pink),
-    BottomBarItem(icon: "magnifyingglass", title: "Search", color: .orange),
-    BottomBarItem(icon: "person.fill", title: "Profile", color: .blue)
-]
-
-struct BasiccView: View {
-    let item: BottomBarItem
-    
-    var detailText: String {
-        "\(item.title) Detail"
-    }
-    
-    */
-    
 
     
     

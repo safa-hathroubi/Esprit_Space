@@ -18,7 +18,7 @@ class UserViewModel: ObservableObject{
     @Published var isLoading: Bool = false
     @Published var isAuthenticated = false
     @Published var isRegistred = false
-    private let baseURL = "http://172.17.9.153:5000/"
+    private let baseURL = "http://172.17.15.240:5000/"
     
     func login(email: String, password: String, onSuccess:@escaping (_ email: String)->Void , onFailure:@escaping(_ titre:String,_ message:String)->Void){
         AF.request(baseURL+"user/login" ,
