@@ -25,6 +25,7 @@
 		D766A9A429E6DD800059A807 /* forgot3.swift in Sources */ = {isa = PBXBuildFile; fileRef = D766A9A329E6DD7F0059A807 /* forgot3.swift */; };
 		D7982CED29D2EEF10005257B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7982CEC29D2EEF10005257B /* User.swift */; };
 		D7982CF029D2F1060005257B /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7982CEF29D2F1060005257B /* UserViewModel.swift */; };
+		D7E7569F29F95F6E00E88B61 /* TimePDFView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E7569E29F95F6E00E88B61 /* TimePDFView.swift */; };
 		E4B5F20B29C1106F00BD201D /* Esprit_SpaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B5F20A29C1106F00BD201D /* Esprit_SpaceApp.swift */; };
 		E4B5F20D29C1106F00BD201D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B5F20C29C1106F00BD201D /* ContentView.swift */; };
 		E4B5F20F29C1107000BD201D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4B5F20E29C1107000BD201D /* Assets.xcassets */; };
@@ -80,6 +81,7 @@
 		D766A9A329E6DD7F0059A807 /* forgot3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = forgot3.swift; sourceTree = "<group>"; };
 		D7982CEC29D2EEF10005257B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D7982CEF29D2F1060005257B /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		D7E7569E29F95F6E00E88B61 /* TimePDFView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePDFView.swift; sourceTree = "<group>"; };
 		E4B5F20729C1106F00BD201D /* Esprit_Space.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Esprit_Space.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4B5F20A29C1106F00BD201D /* Esprit_SpaceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Esprit_SpaceApp.swift; sourceTree = "<group>"; };
 		E4B5F20C29C1106F00BD201D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				D766A9A129E6DD6D0059A807 /* forgot2.swift */,
 				D766A9A329E6DD7F0059A807 /* forgot3.swift */,
 				D766A99F29E6DD260059A807 /* ForgetView.swift */,
+				D7E7569E29F95F6E00E88B61 /* TimePDFView.swift */,
 			);
 			path = Esprit_Space;
 			sourceTree = "<group>";
@@ -492,6 +495,7 @@
 				D766A9A429E6DD800059A807 /* forgot3.swift in Sources */,
 				0A8651EB29E8216900F1C24F /* Note.swift in Sources */,
 				0A8651E929E8214B00F1C24F /* NotesViewModel.swift in Sources */,
+				D7E7569F29F95F6E00E88B61 /* TimePDFView.swift in Sources */,
 				D7982CF029D2F1060005257B /* UserViewModel.swift in Sources */,
 				E4B5F24029C11C5200BD201D /* LoginView.swift in Sources */,
 				0A8651ED29E8219C00F1C24F /* NotesView.swift in Sources */,

@@ -18,7 +18,7 @@ class UserViewModel: ObservableObject{
     @Published var isLoading: Bool = false
     @Published var isAuthenticated = false
     @Published var isRegistred = false
-    private let baseURL = "http://172.17.9.153:5000/"
+    private let baseURL = "http://172.17.2.30:5000/"
     
     func login(email: String, password: String, onSuccess:@escaping (_ email: String)->Void , onFailure:@escaping(_ titre:String,_ message:String)->Void){
         AF.request(baseURL+"user/login" ,
@@ -41,21 +41,29 @@ class UserViewModel: ObservableObject{
                     guard let email = jsonData["email"] as? String,
                           let password = jsonData["password"] as? String,
                             let classe = jsonData["classe"] as? String,
-                            let name = jsonData["name"] as? String
+                          let name = jsonData["name"] as? String,
+                          let absences = jsonData["absences"] as? String,
+                          let dateabs = jsonData["dateabs"] as? String,
+                          let matiere = jsonData["matiere"] as? String,
+                          let cc = jsonData["cc"] as? String,
+                          let examen = jsonData["examen"] as? String
+
+
+
 
 
                     else {
                         onFailure("Error", "Invalid response format22")
                         return
                     }
-                    let user = User(email: email,password: password,classe: nil, name: nil)
+                    let user = User(email: email,password: password,classe: nil, name: nil ,absences: nil , dateabs: nil , matiere:nil , cc: nil, examen: nil)
                     self.currentUser = user
                     // Store token in UserDefaults
                     // UserDefaults.standard.set(token, forKey: "token")
                     print(email)
                     print(classe)
                     
-                    let user2 = User(email: email, password: password, classe: classe, name: name)
+                    let user2 = User(email: email, password: password, classe: classe, name: name ,absences: absences ,dateabs: dateabs , matiere: matiere, cc: cc ,examen: examen)
                     
                     let encoder = JSONEncoder()
 
@@ -74,6 +82,11 @@ class UserViewModel: ObservableObject{
                                print(decodedPerson.email) // Output: "Alice"
                                print(decodedPerson.classe) // Output: 25
                                print(decodedPerson.name) // Output: 25
+                               print(decodedPerson.absences) // Output: 25
+                               print(decodedPerson.dateabs) // Output: 25
+                               print(decodedPerson.matiere) // Output: 25
+                               print(decodedPerson.cc) // Output: 25
+                               print(decodedPerson.examen) // Output: 25
                            }
                        }
 
