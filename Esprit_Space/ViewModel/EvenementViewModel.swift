@@ -54,7 +54,8 @@ class EventViewModel: ObservableObject {
            }.resume()
        }
    
-    func addEvent(name: String, image: String, date: String, organizer: String, description: String, price: String, iduser: String) {
+  /*
+   func addEvent(name: String, image: String, date: String, organizer: String, description: String, price: String, iduser: String) {
             let url = URL(string: "http://localhost:5000/event/createEv")!
             var request = URLRequest(url: url)
             request.httpMethod = "POST"
@@ -86,7 +87,50 @@ class EventViewModel: ObservableObject {
             } catch {
                 print("Error adding event: \(error.localizedDescription)")
             }
+        }*/
+    
+    func addEvent(name: String, image: UIImage, date: String, organizer: String, description: String, price: String, iduser: String) {
+
+        let url = URL(string: "http://localhost:5000/event/createEv")!
+        let headers: HTTPHeaders = ["Content-type": "multipart/form-data"]
+
+        AF.upload(multipartFormData: { multipartFormData in
+            multipartFormData.append(name.data(using: .utf8)!, withName: "name")
+            multipartFormData.append(date.data(using: .utf8)!, withName: "date")
+            multipartFormData.append(organizer.data(using: .utf8)!, withName: "organizer")
+            multipartFormData.append(description.data(using: .utf8)!, withName: "description")
+            multipartFormData.append(price.data(using: .utf8)!, withName: "price")
+            multipartFormData.append(iduser.data(using: .utf8)!, withName: "iduser")
+
+            if let imageData = image.jpegData(compressionQuality: 0.5) {
+                multipartFormData.append(imageData, withName: "image", fileName: "image.jpg", mimeType: "image/jpeg")
+            }
+        }, to: url, headers: headers)
+        .validate()
+        .responseDecodable(of: Evenement.self) { response in
+            switch response.result {
+            case .success(let evenement):
+                let iduser = evenement.iduser ?? "644a41000e704acac2c6a765"
+                print("Event added with ID: \(iduser)")
+            case .failure(let error):
+                print("Error adding event: \(error.localizedDescription)")
+            }
         }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     

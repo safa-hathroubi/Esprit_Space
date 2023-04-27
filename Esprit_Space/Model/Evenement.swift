@@ -4,8 +4,9 @@
 //
 //  Created by safa hathroubi on 26/4/2023.
 //
-
+import SwiftUI
 import Foundation
+
 struct Evenement: Codable {
     let name: String
     let image: String
