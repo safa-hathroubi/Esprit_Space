@@ -17,7 +17,7 @@ class EventViewModel: ObservableObject {
     @Published var events = [Evenement]()
     @Published var isLoading = false
     
-    private let baseURL = "http://172.17.15.240:5000/"
+    private let baseURL = "http://localhost:5000/"
     
     // MARK: - Public Methods
     
@@ -83,26 +83,27 @@ class EventViewModel: ObservableObject {
     }*/
     
     func retrieveEvents() {
-           guard let url = URL(string: "http://172.17.15.240:5000/event/getAllEv") else {
+           guard let url = URL(string: "http://localhost:5000/event/getAllEv") else {
                return
            }
-           
            URLSession.shared.dataTask(with: url) { data, response, error in
                if let error = error {
                    print(error.localizedDescription)
                    return
                }
-               
                guard let data = data else {
                    print("No data received")
                    return
                }
-               
                do {
+
                    let decoder = JSONDecoder()
+
                    decoder.dateDecodingStrategy = .iso8601 // Set the date decoding strategy for ISO 8601 dates
+                   print("checkpoint before")
+
                    let events = try decoder.decode([Evenement].self, from: data)
-                   
+                   print("checkpoint 4")
                    DispatchQueue.main.async {
                        self.events = events
                    }

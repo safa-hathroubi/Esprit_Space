@@ -47,7 +47,7 @@ struct EventRowView: View {
     var body: some View {
         HStack {
             // Display the image
-            AsyncImage(url: URL(string: event.imageURL)) { phase in
+            AsyncImage(url: URL(string: event.image)) { phase in
                 switch phase {
                 case .empty:
                     ProgressView()
