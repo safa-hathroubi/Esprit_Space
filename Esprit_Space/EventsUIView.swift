@@ -15,33 +15,11 @@ struct EventsUIView_Previews: PreviewProvider {
 }
 
 
-/*EVENT ROW WITHOUT IMAGE
- struct EventRowView: View {
-    let event: Evenement
-    var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            Text(event.name)
-                .font(.headline)
-            Text(event.description)
-                .font(.subheadline)
-                .foregroundColor(.gray)
-            HStack {
-                Image(systemName: "calendar.circle")
-                Text(event.date)
-                Text(event.price)
-            }
-            .foregroundColor(.gray)
-        }
-        .padding()
-        .background(Color.white)
-        .cornerRadius(10)
-        .shadow(radius: 5)
-    }
-}*/
 
 
 //EVENT ROW WITH IMAGE
 struct EventRowView: View {
+
     let event: Evenement
    
     var body: some View {
@@ -91,9 +69,11 @@ struct EventRowView: View {
 
 struct EventsUIView: View {
     @ObservedObject var viewModel = EventViewModel()
+    @State private var showAddEventView = false
     
     var body: some View {
         NavigationView {
+            VStack{
             ScrollView {
                 LazyVStack(spacing: 20) {
                     ForEach(viewModel.events, id: \.name) { event in
@@ -101,26 +81,45 @@ struct EventsUIView: View {
                     }
                 }
                 .padding(.horizontal)
+                
+                
+                
+                /* NavigationLink(destination: AddEventView()) {
+                 Text("Add Event")
+                 }.padding(.top)
+                 */ //SIMPLE NAVIGATION BUTTON
+                
+                
+                
+                
+                
+                
+                
             }
             .navigationBarTitle("All Events")
-        }
+            
+            
+                Button(action: {
+                    self.showAddEventView = true                }) {
+                    ZStack {
+                        Circle()
+                            .foregroundColor(.blue)
+                            .frame(width: 60, height: 60)
+                            .shadow(radius: 5)
+                        Image(systemName: "plus")
+                            .foregroundColor(.white)
+                            .font(.system(size: 30, weight: .medium))
+                    }
+                }
+                .frame(maxWidth: .infinity, alignment: .trailing)
+                .padding(.trailing, 20)
+                .padding(.bottom, 20)
+                .sheet(isPresented: $showAddEventView) {
+                    AddEventView()
+                } }}
         .onAppear {
-            viewModel.retrieveEvents() /*{ result in
-                                switch result {
-                                case .success: break
-                                    self.viewModel.events = events
-                                    // Handle successful retrieval of events
-                                case .failure(let error): break
-                                    // Handle error
-                                }
-                            }*/
+            viewModel.retrieveEvents()
         }
     }
 }
-
-
-
-
-
-
 

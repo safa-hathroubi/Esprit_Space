@@ -11,6 +11,8 @@
 		0A137FAE29CC51E0001C74B0 /* BottomBar-SwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0A137FAD29CC51E0001C74B0 /* BottomBar-SwiftUI */; };
 		0A2461CD29EC22560044D94B /* ClasseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2461CC29EC22560044D94B /* ClasseViewModel.swift */; };
 		0A2461CF29EC22600044D94B /* Classe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2461CE29EC22600044D94B /* Classe.swift */; };
+		0A5DDC5329FA7F4900B195EC /* AddEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5DDC5229FA7F4900B195EC /* AddEventView.swift */; };
+		0A5DDC5529FA942800B195EC /* FileImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5DDC5429FA942800B195EC /* FileImporter.swift */; };
 		0A8651E529E81FFF00F1C24F /* HomepageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8651E429E81FFF00F1C24F /* HomepageView.swift */; };
 		0A8651E729E820FD00F1C24F /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8651E629E820FD00F1C24F /* EditProfileView.swift */; };
 		0A8651E929E8214B00F1C24F /* NotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8651E829E8214B00F1C24F /* NotesViewModel.swift */; };
@@ -62,6 +64,8 @@
 /* Begin PBXFileReference section */
 		0A2461CC29EC22560044D94B /* ClasseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClasseViewModel.swift; sourceTree = "<group>"; };
 		0A2461CE29EC22600044D94B /* Classe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classe.swift; sourceTree = "<group>"; };
+		0A5DDC5229FA7F4900B195EC /* AddEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventView.swift; sourceTree = "<group>"; };
+		0A5DDC5429FA942800B195EC /* FileImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileImporter.swift; sourceTree = "<group>"; };
 		0A8651E429E81FFF00F1C24F /* HomepageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageView.swift; sourceTree = "<group>"; };
 		0A8651E629E820FD00F1C24F /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		0A8651E829E8214B00F1C24F /* NotesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewModel.swift; sourceTree = "<group>"; };
@@ -212,6 +216,7 @@
 				0A8651EE29E821CE00F1C24F /* TimetableView.swift */,
 				E4B5F21029C1107000BD201D /* Preview Content */,
 				E4B5F23929C1125D00BD201D /* SignupView.swift */,
+				0A5DDC5229FA7F4900B195EC /* AddEventView.swift */,
 				0AD091FD29F96F67008EFA98 /* EventsUIView.swift */,
 				0A8651EC29E8219C00F1C24F /* NotesView.swift */,
 				0A8651E629E820FD00F1C24F /* EditProfileView.swift */,
@@ -222,6 +227,7 @@
 				D766A9A129E6DD6D0059A807 /* forgot2.swift */,
 				D766A9A329E6DD7F0059A807 /* forgot3.swift */,
 				D766A99F29E6DD260059A807 /* ForgetView.swift */,
+				0A5DDC5429FA942800B195EC /* FileImporter.swift */,
 			);
 			path = Esprit_Space;
 			sourceTree = "<group>";
@@ -500,6 +506,7 @@
 				D766A9A029E6DD260059A807 /* ForgetView.swift in Sources */,
 				0AD091FE29F96F67008EFA98 /* EventsUIView.swift in Sources */,
 				0AD091FA29F95D69008EFA98 /* Evenement.swift in Sources */,
+				0A5DDC5529FA942800B195EC /* FileImporter.swift in Sources */,
 				D766A9A429E6DD800059A807 /* forgot3.swift in Sources */,
 				0A8651EB29E8216900F1C24F /* Note.swift in Sources */,
 				0A8651E929E8214B00F1C24F /* NotesViewModel.swift in Sources */,
@@ -515,6 +522,7 @@
 				0A8651EF29E821CE00F1C24F /* TimetableView.swift in Sources */,
 				0A2461CD29EC22560044D94B /* ClasseViewModel.swift in Sources */,
 				D7982CED29D2EEF10005257B /* User.swift in Sources */,
+				0A5DDC5329FA7F4900B195EC /* AddEventView.swift in Sources */,
 				0A8651E529E81FFF00F1C24F /* HomepageView.swift in Sources */,
 				0A2461CF29EC22600044D94B /* Classe.swift in Sources */,
 				D766A9A229E6DD6E0059A807 /* forgot2.swift in Sources */,
