@@ -142,8 +142,8 @@ struct EventsUIView: View {
                  }.padding(.top)
                  */ //SIMPLE NAVIGATION BUTTON
                
-            }
-            .navigationBarTitle("Top Events")
+            }.padding(.top, 10)
+            //.navigationBarTitle("Top Events")
             
             
             
@@ -161,7 +161,7 @@ struct EventsUIView: View {
                 }
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 .padding(.trailing, 20)
-                .padding(.bottom, 10)
+                //.padding(.bottom, 10)
                 .sheet(isPresented: $showAddEventView) {
                     AddEventView()
                 } }}

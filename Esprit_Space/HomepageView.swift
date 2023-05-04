@@ -38,7 +38,7 @@ let items: [BottomBarItem] = [
 struct BasicView: View {
     let item: BottomBarItem
 
-    var detailText: String {
+   var detailText: String {
     "\(item.title) Detail"
 }
 
