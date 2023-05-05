@@ -13,7 +13,7 @@ struct Esprit_SpaceApp: App {
 
     var body: some Scene {
         WindowGroup {
-            EventsUIView()
+            HomepageView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

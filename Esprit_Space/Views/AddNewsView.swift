@@ -1,38 +1,36 @@
 //
-//  AddEventView.swift
+//  AddNewsView.swift
 //  Esprit_Space
 //
-//  Created by safa hathroubi on 27/4/2023.
+//  Created by safa on 5/5/2023.
 //
 
 import SwiftUI
 import UniformTypeIdentifiers
 
 
-
-struct AddEventView_Previews: PreviewProvider {
+struct AddNewsView_Previews: PreviewProvider {
     static var previews: some View {
-        AddEventView()
+        AddNewsView()
     }
 }
 
 
-struct AddEventView: View {
+struct AddNewsView: View {
     @Environment(\.presentationMode) var presentationMode
     
-    @State private var name = ""
-    @State private var date = ""
-    @State private var organizer = ""
+    @State private var title = ""
     @State private var description = ""
-    @State private var price = ""
+    @State private var content = ""
+    @State private var author = ""
     @State private var image: UIImage?
     @State private var showingImagePicker = false
-    @ObservedObject var viewModel = EventViewModel()
+    @ObservedObject var viewModel = NewsViewModel()
 
     var body: some View {
         NavigationView {
             Form {
-                Section(header: Text("Event Poster")) {
+                Section(header: Text("News Image")) {
                     if let image = image {
                         Image(uiImage: image)
                             .resizable()
@@ -45,12 +43,11 @@ struct AddEventView: View {
                     .padding()
                 }
 
-                Section(header: Text("Event Details")) {
-                    TextField("Event Name", text: $name)
-                    TextField("Event Date", text: $date)
-                    TextField("Organizer", text: $organizer)
+                Section(header: Text("News Details")) {
+                    TextField("Title", text: $title)
                     TextField("Description", text: $description)
-                    TextField("Price", text: $price)
+                    TextField("Content", text: $content)
+                    TextField("Author", text: $author)
                 }
 
                 Section {
@@ -60,13 +57,13 @@ struct AddEventView: View {
                             return
                         }
 
-                        viewModel.addEvent(name: name, image: image, date: date, organizer: organizer, description: description, price: price, iduser: "644a41000e704acac2c6a765")
+                        viewModel.addNews(title: title, image: image, description: description, content: content, author: author, iduser: "6453f693c32d95e7b953678a")
 
                         presentationMode.wrappedValue.dismiss()
                     }
                 }
             }
-            .navigationBarTitle("Add Event")
+            .navigationBarTitle("Add News")
             .sheet(isPresented: $showingImagePicker) {
                 ImagePicker(image: $image)
             }

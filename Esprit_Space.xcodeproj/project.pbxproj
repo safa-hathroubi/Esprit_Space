@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		03CF3690C264895DF9BBA07A /* Pods_Esprit_SpaceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1840F08C9EECA9637AEC6095 /* Pods_Esprit_SpaceTests.framework */; };
+		0617BCFF2A0550C700641E26 /* NewsUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0617BCFE2A0550C700641E26 /* NewsUIView.swift */; };
+		0617BD012A05512100641E26 /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0617BD002A05512100641E26 /* NewsViewModel.swift */; };
+		0617BD032A05516400641E26 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0617BD022A05516400641E26 /* News.swift */; };
+		0617BD052A05668A00641E26 /* AddNewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0617BD042A05668A00641E26 /* AddNewsView.swift */; };
 		0A137FAE29CC51E0001C74B0 /* BottomBar-SwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0A137FAD29CC51E0001C74B0 /* BottomBar-SwiftUI */; };
 		0A2461CD29EC22560044D94B /* ClasseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2461CC29EC22560044D94B /* ClasseViewModel.swift */; };
 		0A2461CF29EC22600044D94B /* Classe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2461CE29EC22600044D94B /* Classe.swift */; };
@@ -62,6 +66,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0617BCFE2A0550C700641E26 /* NewsUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsUIView.swift; sourceTree = "<group>"; };
+		0617BD002A05512100641E26 /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
+		0617BD022A05516400641E26 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		0617BD042A05668A00641E26 /* AddNewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewsView.swift; sourceTree = "<group>"; };
 		0A2461CC29EC22560044D94B /* ClasseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClasseViewModel.swift; sourceTree = "<group>"; };
 		0A2461CE29EC22600044D94B /* Classe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classe.swift; sourceTree = "<group>"; };
 		0A5DDC5229FA7F4900B195EC /* AddEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventView.swift; sourceTree = "<group>"; };
@@ -136,6 +144,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0617BCFD2A0550AB00641E26 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0617BCFE2A0550C700641E26 /* NewsUIView.swift */,
+				0617BD042A05668A00641E26 /* AddNewsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		37157C9230B6FCDC14893450 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +183,7 @@
 				0A8651EA29E8216900F1C24F /* Note.swift */,
 				0A2461CE29EC22600044D94B /* Classe.swift */,
 				0AD091F929F95D69008EFA98 /* Evenement.swift */,
+				0617BD022A05516400641E26 /* News.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -177,6 +195,7 @@
 				0A8651E829E8214B00F1C24F /* NotesViewModel.swift */,
 				0A2461CC29EC22560044D94B /* ClasseViewModel.swift */,
 				0AD091FB29F96161008EFA98 /* EvenementViewModel.swift */,
+				0617BD002A05512100641E26 /* NewsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -206,6 +225,7 @@
 		E4B5F20929C1106F00BD201D /* Esprit_Space */ = {
 			isa = PBXGroup;
 			children = (
+				0617BCFD2A0550AB00641E26 /* Views */,
 				D7982CEE29D2F0BF0005257B /* ViewModel */,
 				D7982CEB29D2EE5E0005257B /* Model */,
 				E4B5F20A29C1106F00BD201D /* Esprit_SpaceApp.swift */,
@@ -503,6 +523,7 @@
 			files = (
 				0A8651E729E820FD00F1C24F /* EditProfileView.swift in Sources */,
 				0AA4E97F29CB7ADA00DD44EB /* HomeView.swift in Sources */,
+				0617BCFF2A0550C700641E26 /* NewsUIView.swift in Sources */,
 				D766A9A029E6DD260059A807 /* ForgetView.swift in Sources */,
 				0AD091FE29F96F67008EFA98 /* EventsUIView.swift in Sources */,
 				0AD091FA29F95D69008EFA98 /* Evenement.swift in Sources */,
@@ -511,15 +532,18 @@
 				0A8651EB29E8216900F1C24F /* Note.swift in Sources */,
 				0A8651E929E8214B00F1C24F /* NotesViewModel.swift in Sources */,
 				D7982CF029D2F1060005257B /* UserViewModel.swift in Sources */,
+				0617BD012A05512100641E26 /* NewsViewModel.swift in Sources */,
 				E4B5F24029C11C5200BD201D /* LoginView.swift in Sources */,
 				0A8651ED29E8219C00F1C24F /* NotesView.swift in Sources */,
 				E4B5F24229C1241600BD201D /* StudentProfileView.swift in Sources */,
 				E4B5F21429C1107000BD201D /* Persistence.swift in Sources */,
 				E4B5F20D29C1106F00BD201D /* ContentView.swift in Sources */,
+				0617BD052A05668A00641E26 /* AddNewsView.swift in Sources */,
 				E4B5F20B29C1106F00BD201D /* Esprit_SpaceApp.swift in Sources */,
 				E4B5F21729C1107000BD201D /* Esprit_Space.xcdatamodeld in Sources */,
 				0AD091FC29F96161008EFA98 /* EvenementViewModel.swift in Sources */,
 				0A8651EF29E821CE00F1C24F /* TimetableView.swift in Sources */,
+				0617BD032A05516400641E26 /* News.swift in Sources */,
 				0A2461CD29EC22560044D94B /* ClasseViewModel.swift in Sources */,
 				D7982CED29D2EEF10005257B /* User.swift in Sources */,
 				0A5DDC5329FA7F4900B195EC /* AddEventView.swift in Sources */,

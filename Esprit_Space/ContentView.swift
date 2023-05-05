@@ -12,7 +12,7 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            EventsUIView()
+            HomepageView()
                 .navigationTitle("Esprit Space")
         }
     }

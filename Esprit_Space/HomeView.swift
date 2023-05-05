@@ -19,9 +19,23 @@ import SwiftUI
 
 
     
+struct HomeView_Previews: PreviewProvider {
+    static var previews: some View {
+        HomeView()
+    }
+}
+
+
+struct HomeView: View {
+    var body: some View {
+        VStack {
+            EventsUIView()
+            NotesView()
+        }
+    }
+}
     
-    
-    
+/* STATIC DISPLAY OF EVENTS
     struct Event: Identifiable {
         let id = UUID()
         let name: String
@@ -133,10 +147,6 @@ import SwiftUI
     }
     
     
-  
-    
-    
-    
     
     
     
@@ -150,3 +160,4 @@ import SwiftUI
         }
     }
 //}
+*/

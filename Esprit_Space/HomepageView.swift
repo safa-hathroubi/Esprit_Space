@@ -31,7 +31,7 @@ let items: [BottomBarItem] = [
     BottomBarItem(icon: "star.fill", title: "Events", color: .pink),
     BottomBarItem(icon: "list.bullet", title: "Notes", color: .purple),
     BottomBarItem(icon: "house.fill", title: "", color: .blue),
-    BottomBarItem(icon: "square", title: "Timetable", color: .green),
+    BottomBarItem(icon: "square", title: "news", color: .green),
     BottomBarItem(icon: "person.fill", title: "Profile", color: .orange)
 ]
 
@@ -94,11 +94,11 @@ struct HomepageView : View {
         case "Notes":
             return AnyView(NotesView())
         case "Timetable":
-            return AnyView(TimetableView())
+            return AnyView(NewsUIView())
         case "Profile":
             return AnyView(StudentProfileView())
         default:
-            return AnyView(HomeView())
+            return AnyView(NewsUIView())
         }
     }
 

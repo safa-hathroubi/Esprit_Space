@@ -136,8 +136,10 @@ class EventViewModel: ObservableObject {
     
     
 
+    // MARK: - OLD CODE
+
     
-    
+    // BOTH NON FUNCTIONAL
     
     func createEvent(event: Evenement, completion: @escaping (Result<Evenement, Error>) -> Void) {
         isLoading = true
