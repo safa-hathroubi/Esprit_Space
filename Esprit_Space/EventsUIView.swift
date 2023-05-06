@@ -106,8 +106,7 @@ struct EventsUIView: View {
         }
         .onAppear {
             viewModel.retrieveEvents()
-        } .sheet(isPresented: $showAddEventView) {
-            AddEventView() }
+        }
     }
 }
 
@@ -128,7 +127,8 @@ struct AddEventButton: View {
                     .foregroundColor(.white)
                     .font(.system(size: 30, weight: .medium))
             }
-        }
+        }.sheet(isPresented: $showAddEventView) {
+            AddEventView() }
         .frame(maxWidth: .infinity, alignment: .trailing)
         .padding(.trailing, 20)
         .offset(y: height / 1.4)//end button
