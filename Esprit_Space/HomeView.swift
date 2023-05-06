@@ -30,6 +30,7 @@ struct HomeView: View {
     var body: some View {
         VStack {
             EventsUIView()
+            NewsUIView()
             NotesView()
         }
     }

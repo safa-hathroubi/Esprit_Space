@@ -22,6 +22,8 @@ import SwiftUI
 struct NewsUIView: View {
     @StateObject var viewModel = NewsViewModel()
     @State private var showAddNewsView = false
+
+  
     
     var body: some View {
         
@@ -70,17 +72,35 @@ struct NewsUIView: View {
                             .padding(.vertical, 10)
                             
                         }
-                        .padding(.horizontal, 5)
+                        .padding(.horizontal, 10)
                         .background(Color.white)
                         .shadow(radius: 5)
-                        .padding(.horizontal, 5)
                         .padding(.vertical, 10)
                     }
+                    .padding(.horizontal)
                 }
             }
             .navigationTitle("News of the Week")
+                
             
             
+
+        }
+        .navigationBarItems(trailing: AddNewsButton())
+        .onAppear {
+            viewModel.fetchNews()
+        }
+        .sheet(isPresented: $showAddNewsView) {
+            AddNewsView()
+        }
+    }
+}
+
+    
+    struct AddNewsButton: View {
+        @State private var showAddNewsView = false
+        @State private var height = UIScreen.main.bounds.height
+        var body: some View {
             Button(action: {
                 self.showAddNewsView = true
             }) {
@@ -93,18 +113,12 @@ struct NewsUIView: View {
             }
             .padding()
             .frame(maxWidth: .infinity, alignment: .trailing)
-            .offset(y: -20)}//end button
-            .padding(.trailing, 20)
-            .sheet(isPresented: $showAddNewsView) {
-                AddEventView()
-            }
-        }
-        .onAppear {
-            viewModel.fetchNews()
+            .offset(y: height / 1.4)}//end button
+           
+           
         }
     }
-}
-
+    
 
 
 struct NewsDetailView: View {

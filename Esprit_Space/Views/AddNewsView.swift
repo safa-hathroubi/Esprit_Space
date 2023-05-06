@@ -23,7 +23,7 @@ struct AddNewsView: View {
     @State private var description = ""
     @State private var content = ""
     @State private var author = ""
-    @State private var image: UIImage?
+    @State private var imageUrl: UIImage?
     @State private var showingImagePicker = false
     @ObservedObject var viewModel = NewsViewModel()
 
@@ -31,8 +31,8 @@ struct AddNewsView: View {
         NavigationView {
             Form {
                 Section(header: Text("News Image")) {
-                    if let image = image {
-                        Image(uiImage: image)
+                    if let imageUrl = imageUrl {
+                        Image(uiImage: imageUrl)
                             .resizable()
                             .scaledToFit()
                     }
@@ -52,12 +52,12 @@ struct AddNewsView: View {
 
                 Section {
                     Button("Save") {
-                        guard let image = image else {
+                        guard let imageUrl = imageUrl else {
                             print("Error: Image not selected")
                             return
                         }
 
-                        viewModel.addNews(title: title, image: image, description: description, content: content, author: author, iduser: "6453f693c32d95e7b953678a")
+                        viewModel.addNews(title: title, description: description, content: content, author: author, iduser: "6453f693c32d95e7b953678a", imageUrl: imageUrl)
 
                         presentationMode.wrappedValue.dismiss()
                     }
@@ -65,7 +65,7 @@ struct AddNewsView: View {
             }
             .navigationBarTitle("Add News")
             .sheet(isPresented: $showingImagePicker) {
-                ImagePicker(image: $image)
+                ImagePicker(image: $imageUrl)
             }
         }
     }

@@ -17,52 +17,6 @@ struct EventsUIView_Previews: PreviewProvider {
 
 
 
-//EVENT ROW WITH IMAGE
-/*struct EventRowView: View {
-
-    let event: Evenement
-   
-    var body: some View {
-        HStack {
-            // Display the image
-            AsyncImage(url: URL(string: event.image)) { phase in
-                switch phase {
-                case .empty:
-                    ProgressView()
-                case .success(let image):
-                    image
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 80, height: 80)
-                        .cornerRadius(10)
-                case .failure:
-                    Image(systemName: "exclamationmark.triangle")
-                @unknown default:
-                    EmptyView()
-                }
-            }
-            .frame(width: 80, height: 80)
-            .padding(.trailing, 10)
-            
-            VStack(alignment: .leading, spacing: 10) {
-                Text(event.name)
-                    .font(.headline)
-                Text(event.description)
-                    .font(.subheadline)
-                    .foregroundColor(.gray)
-                HStack {
-                    Image(systemName: "calendar.circle")
-                    Text(event.date)
-                }
-                .foregroundColor(.gray)
-            }
-            .padding()
-            .background(Color.white)
-            .cornerRadius(10)
-            .shadow(radius: 5)
-        }
-    }
-}*/
 struct EventRowView: View {
     let event: Evenement
    
@@ -128,6 +82,7 @@ struct EventsUIView: View {
         NavigationView {
             VStack{
             ScrollView {
+                
                 LazyVStack(spacing: 20) {
                     ForEach(viewModel.events, id: \.name) { event in
                         EventRowView(event: event)
@@ -137,43 +92,51 @@ struct EventsUIView: View {
                 
                 
                 
-                /* NavigationLink(destination: AddEventView()) {
-                 Text("Add Event")
-                 }.padding(.top)
-                 */ //SIMPLE NAVIGATION BUTTON
+              
                
             }.padding(.top, 10)
+            .navigationTitle("Top Events")
+
             //.navigationBarTitle("Top Events")
             
             
             
-                Button(action: {
-                    self.showAddEventView = true                }) {
-                    ZStack {
-                        Circle()
-                            .foregroundColor(.blue)
-                            .frame(width: 60, height: 60)
-                            .shadow(radius: 5)
-                        Image(systemName: "plus")
-                            .foregroundColor(.white)
-                            .font(.system(size: 30, weight: .medium))
-                    }
-                }
-                .frame(maxWidth: .infinity, alignment: .trailing)
-                .padding(.trailing, 20)
-                //.padding(.bottom, 10)
-                .sheet(isPresented: $showAddEventView) {
-                    AddEventView()
-                } }}
+                 }.navigationBarItems(trailing: AddEventButton())
+            
+        }
         .onAppear {
             viewModel.retrieveEvents()
-        }
+        } .sheet(isPresented: $showAddEventView) {
+            AddEventView() }
     }
 }
 
 
 
+struct AddEventButton: View {
+    @State private var showAddEventView = false
+    @State private var height = UIScreen.main.bounds.height
+    var body: some View {
+        Button(action: {
+            self.showAddEventView = true                }) {
+            ZStack {
+                Circle()
+                    .foregroundColor(.blue)
+                    .frame(width: 60, height: 60)
+                    .shadow(radius: 5)
+                Image(systemName: "plus")
+                    .foregroundColor(.white)
+                    .font(.system(size: 30, weight: .medium))
+            }
+        }
+        .frame(maxWidth: .infinity, alignment: .trailing)
+        .padding(.trailing, 20)
+        .offset(y: height / 1.4)//end button
 
+       
+       
+    }
+}
 
 
 

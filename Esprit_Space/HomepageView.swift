@@ -5,25 +5,6 @@
 //  Created by safa hathroubi on 13/4/2023.
 //
 
-
-//
-//  HomepageView.swift
-//  Esprit_Space
-//
-//  Created by safa hathroubi on 12/4/2023.
-//
-
-
-
-
-struct HomepageView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomepageView()
-    }
-}
-
-
-
 import SwiftUI
 import BottomBar_SwiftUI
 
@@ -55,7 +36,7 @@ var navigateButton: some View {
             Rectangle()
                 .fill(item.color)
                 .cornerRadius(8)
-                .frame(height: 52)
+               .frame(height: 50)
                 .padding(.horizontal)
 
             Text("Navigate")
@@ -94,7 +75,7 @@ struct HomepageView : View {
         case "Notes":
             return AnyView(NotesView())
         case "Timetable":
-            return AnyView(NewsUIView())
+            return AnyView(HomeView())
         case "Profile":
             return AnyView(StudentProfileView())
         default:
@@ -107,9 +88,14 @@ var body: some View {
         NavigationView {
             VStack {
                 destinationView
-                    .navigationBarTitle(Text(selectedItem.title))
                 BottomBar(selectedIndex: $selectedIndex, items: items)
             }
         }
+    }
+}
+
+struct HomepageView_Previews: PreviewProvider {
+    static var previews: some View {
+        HomepageView()
     }
 }
