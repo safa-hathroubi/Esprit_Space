@@ -89,21 +89,10 @@ struct EventsUIView: View {
                     }
                 }
                 .padding(.horizontal)
-                
-                
-                
-              
-               
             }.padding(.top, 10)
+                
             .navigationTitle("Top Events")
-
-            //.navigationBarTitle("Top Events")
-            
-            
-            
-                 }.navigationBarItems(trailing: AddEventButton())
-            
-        }
+                 }.navigationBarItems(trailing: AddEventButton())        }
         .onAppear {
             viewModel.retrieveEvents()
         }
@@ -114,10 +103,11 @@ struct EventsUIView: View {
 
 struct AddEventButton: View {
     @State private var showAddEventView = false
-    @State private var height = UIScreen.main.bounds.height
+    
     var body: some View {
         Button(action: {
-            self.showAddEventView = true                }) {
+            self.showAddEventView = true
+        }) {
             ZStack {
                 Circle()
                     .foregroundColor(.blue)
@@ -127,16 +117,17 @@ struct AddEventButton: View {
                     .foregroundColor(.white)
                     .font(.system(size: 30, weight: .medium))
             }
-        }.sheet(isPresented: $showAddEventView) {
-            AddEventView() }
-        .frame(maxWidth: .infinity, alignment: .trailing)
+        }
+        .sheet(isPresented: $showAddEventView) {
+            AddEventView()
+        }
         .padding(.trailing, 20)
-        .offset(y: height / 1.4)//end button
-
-       
-       
+        .padding(.bottom, 0) // Add padding to adjust the button's position
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing) // Align the button to the bottom-right corner
     }
 }
+
+
 
 
 

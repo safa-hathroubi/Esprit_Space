@@ -90,16 +90,14 @@ struct NewsUIView: View {
         .onAppear {
             viewModel.fetchNews()
         }
-        .sheet(isPresented: $showAddNewsView) {
-            AddNewsView()
-        }
+       
     }
 }
 
     
     struct AddNewsButton: View {
         @State private var showAddNewsView = false
-        @State private var height = UIScreen.main.bounds.height
+        //@State private var height = UIScreen.main.bounds.height
         var body: some View {
             Button(action: {
                 self.showAddNewsView = true
@@ -110,11 +108,13 @@ struct NewsUIView: View {
                     .padding()
                     .background(Color.red)
                     .cornerRadius(10)
+            } .sheet(isPresented: $showAddNewsView) {
+                AddNewsView()
             }
             .padding()
             .frame(maxWidth: .infinity, alignment: .trailing)
-            .offset(y: height / 1.4)}//end button
-           
+            //.offset(y: height / 1.4)//end button
+        }
            
         }
     }
