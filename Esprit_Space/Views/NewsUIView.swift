@@ -80,7 +80,7 @@ struct NewsUIView: View {
                     .padding(.horizontal)
                 }
             }
-            .navigationTitle("News of the Week")
+            .navigationTitle("Esprit News")
                 
             
             
