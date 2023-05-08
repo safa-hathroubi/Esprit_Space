@@ -1,27 +1,20 @@
 //
-//  NotesView.swift
+//  Notes.swift
 //  Esprit_Space
 //
-//  Created by safa hathroubi on 13/4/2023.
-//
-
-//
-//  NotesView.swift
-//  Esprit_Space
-//
-//  Created by safa hathroubi on 12/4/2023.
+//  Created by Emna Ouenniche on 06/05/2023.
 //
 
 import SwiftUI
-
-struct NotesView_Previews: PreviewProvider {
+struct Notes_Previews: PreviewProvider {
     static var previews: some View {
-        NotesView()
+        Notes()
     }
 }
 
 
-struct NotesView: View {
+
+struct Notes: View {
     @State private var user: User?
     // Sample data for credits and absences
   /*  let credits = [
@@ -38,12 +31,18 @@ struct NotesView: View {
     ]*/
     
     var body: some View {
-        ScrollView {
-            VStack(spacing: 20) {
+       //ScrollView {
+            HStack(spacing: 20) {
                 // Credits section
-               /* VStack {
+                HStack {
                     if let user = user {
-                        Text(user.matiere!)
+                        Text(user.matiere!) .foregroundColor(.black)
+                            .font(.title)
+                        Text(user.cc!) .foregroundColor(.black)
+                            .font(.title)
+                        
+                        Text(user.examen!)
+
                             .foregroundColor(.black)
                         .font(.title)
                         
@@ -59,8 +58,8 @@ struct NotesView: View {
                     }
                     
                 }
-                */
-             /*   .onAppear {
+                
+                .onAppear {
                            if let data = UserDefaults.standard.data(forKey: "user") {
                                let decoder = JSONDecoder()
                                do {
@@ -70,9 +69,9 @@ struct NotesView: View {
                                    print("Error decoding Person: \(error)")
                                }
                            }
-                       }*/
-               /*
-                VStack {
+                       }
+                
+              /*  VStack {
                     if let user = user {
                         Text(user.cc!)
                             .foregroundColor(.black)
@@ -89,9 +88,9 @@ struct NotesView: View {
                         .font(.title)
                     }
                     
-                }*/
+                }
                 
-                /*.onAppear {
+                .onAppear {
                            if let data = UserDefaults.standard.data(forKey: "user") {
                                let decoder = JSONDecoder()
                                do {
@@ -101,9 +100,9 @@ struct NotesView: View {
                                    print("Error decoding Person: \(error)")
                                }
                            }
-                       }*/
+                       }
                 
-               /* VStack {
+                VStack {
                     if let user = user {
                         Text(user.examen!)
                             .foregroundColor(.black)
@@ -120,10 +119,10 @@ struct NotesView: View {
                         .font(.title)
                     }
                     
-                }*/
+                }
                 
                 
-           /*     .onAppear {
+                .onAppear {
                            if let data = UserDefaults.standard.data(forKey: "user") {
                                let decoder = JSONDecoder()
                                do {
@@ -135,7 +134,7 @@ struct NotesView: View {
                            }
                        }
              */
-              //  .padding(.top, 60)
+                .padding(.bottom, 180)
                 
                 // Absences section
                 /*VStack(spacing: 10) {
@@ -150,44 +149,16 @@ struct NotesView: View {
                 }*/
                 
                
-                //.padding(.bottom, 20)
-                HStack {
+                .padding(.bottom, 180)
+               /* VStack {
                     if let user = user {
                         Text("Absences")
                             .foregroundColor(.black)
                             .font(.headline)
                             .padding(.bottom, 5)
-                            .padding(.top, 50)
-
-                        //Text(user.absences!)
-                            .foregroundColor(.black)
-                        .font(.title)
-                        
-                    }
-                    else {
-                        Text("Absences")
-                            .foregroundColor(.black)
-                            .font(.headline)
-                            .padding(.bottom, 5)
-                        Text("Aucune abs")
-                            .foregroundColor(.black)
-                        .font(.title)
-                    }
-                    
-                }
-                
-                HStack {
-                    if let user = user {
-                        
                         Text(user.absences!)
-                        
                             .foregroundColor(.black)
                         .font(.title)
-                        
-                        Text(user.dateabs!)
-                            .foregroundColor(.gray)
-                        .font(.title)
-                        
                         
                     }
                     else {
@@ -200,7 +171,32 @@ struct NotesView: View {
                         .font(.title)
                     }
                     
-                }.onAppear {
+                }*/
+                
+                /*VStack {
+                    if let user = user {
+    
+                        Text(user.dateabs!)
+                            .foregroundColor(.black)
+                        .font(.title)
+                        
+                    }
+                    else {
+                        Text("Absences")
+                            .foregroundColor(.black)
+                            .font(.headline)
+                            .padding(.bottom, 5)
+                        Text("Aucune abs")
+                            .foregroundColor(.black)
+                        .font(.title)
+                    }
+                    
+                }*/
+                
+                
+                
+                
+               /* .onAppear {
                            if let data = UserDefaults.standard.data(forKey: "user") {
                                let decoder = JSONDecoder()
                                do {
@@ -210,157 +206,29 @@ struct NotesView: View {
                                    print("Error decoding Person: \(error)")
                                }
                            }
-                       }
-                .padding(.bottom, 20)
+                       }*/
+                
+                // PDF section
+                /*VStack(spacing: 10) {
+                    Text("Emplois").font(.title)
+                    ScrollView(.vertical) {
+                       
+                    }
+                }*/
+                .padding(.bottom, 180)
                 // PDF button
-                                 NavigationLink(destination: Notes()) {
-                                     Text("Consultez vos notes").font(.title2).bold()
+                                 /*NavigationLink(destination: TimePDFView()) {
+                                     Text("View Latest PDF").font(.title2).bold()
                                          .frame(maxWidth: .infinity)
                                          .padding()
                                          .foregroundColor(.white)
                                          .background(Color.red)
                                          .cornerRadius(10)
-                                 }
+                                 }*/
             }
-            .padding(.top, 110)
-        }
+            .padding()
+      //  }
         //.background(Color.gray.opacity(0.1))
         .edgesIgnoringSafeArea(.all)
     }
 }
-
-
-
-struct CreditRowView: View {
-    let credit: Credit
-    
-    var body: some View {
-        HStack {
-            VStack(alignment: .leading) {
-                Text(credit.subject)
-                    .font(.headline)
-                Text("\(credit.credits) credits")
-                    .font(.subheadline)
-                    .foregroundColor(.gray)
-            }
-            Spacer()
-            Text("Coeff: \(credit.coefficient)")
-                .font(.subheadline)
-                .foregroundColor(.gray)
-            Text(credit.date)
-                .font(.subheadline)
-                .foregroundColor(.gray)
-        }
-        .padding()
-        .background(Color.white)
-        .cornerRadius(10)
-    }
-}
-
-struct AbsenceRowView: View {
-    let absence: Absence
-    
-    var body: some View {
-        HStack {
-            Text(absence.date)
-                .font(.subheadline)
-            Spacer()
-            Text(absence.justification)
-                .font(.subheadline)
-        }
-        .padding()
-        .background(Color.white)
-        .cornerRadius(10)
-    }
-}
-
-struct Credit: Identifiable {
-    let id = UUID()
-    let subject: String
-    let credits: Int
-    let date: String
-    let coefficient: Double
-}
-
-struct Absence: Identifiable {
-    let id = UUID()
-    let date: String
-    let justification: String
-}
-
-
-/*
-
-
-
-import SwiftUI
-
-struct NotesView: View {
-    @StateObject var viewModel = NotesViewModel()
-
-    var body: some View {
-        NavigationView {
-            ZStack {
-                Color.gray.opacity(0.1).ignoresSafeArea()
-                
-                VStack {
-                    Text("Affichage des notes iciiiii")
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .foregroundColor(.blue)
-                        .padding(.top, 20)
-                    
-                    if viewModel.notes.isEmpty {
-                        ProgressView()
-                            .progressViewStyle(CircularProgressViewStyle())
-                    } else {
-                        ScrollView {
-                            LazyVStack(spacing: 20) {
-                                ForEach(viewModel.notes, id: \.iduser) { note in
-                                    NoteCard(note: note)
-                                }
-                            }
-                            .padding(.horizontal, 20)
-                            .padding(.vertical, 10)
-                        }
-                    }
-                    
-                    Spacer()
-                }
-                .padding(.top, 20)
-                .background(Color.white)
-                .cornerRadius(10)
-                .shadow(radius: 5)
-                .padding(.horizontal, 20)
-            }
-            .navigationTitle("My Notes")
-            .onAppear {
-                viewModel.fetchNotes(forUserId: "YOUR_USER_ID_HERE")
-            }
-        }
-    }
-}
-
-struct NoteCard: View {
-    let note: Note
-    
-    var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text(note.matiere)
-                .font(.headline)
-            Text("CC: \(note.cc) - Examen: \(note.examen)")
-                .font(.subheadline)
-            Text(note.iduser)
-                .font(.subheadline)
-                .foregroundColor(.gray)
-        }
-        .padding()
-        .background(Color.white)
-        .cornerRadius(10)
-        .shadow(radius: 5)
-    }
-}
-*/
-
-
-
