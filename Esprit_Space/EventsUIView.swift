@@ -179,3 +179,7 @@ struct EventDetailView: View {
         .navigationBarTitle(event.name)
     }
 }
+
+
+
+

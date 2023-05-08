@@ -120,7 +120,9 @@ struct NewsUIView: View {
     }
     
 
-
+/*
+ //WITHOUT COMMENTS
+ 
 struct NewsDetailView: View {
     var post: NewsPost
 
@@ -159,4 +161,104 @@ struct NewsDetailView: View {
         .navigationTitle(post.title)
     }
 }
+*/
 
+
+
+/*CHATGPT ONE*/
+struct NewsDetailView: View {
+    var post: NewsPost
+
+    @StateObject var viewModel = NewsViewModel()
+    @State private var showAddCommentView = false
+    
+    var body: some View {
+        ScrollView {
+            VStack(alignment: .leading) {
+                // Display the image
+                AsyncImage(url: URL(string: post.imageUrl)) { phase in
+                    switch phase {
+                    case .empty:
+                        ProgressView()
+                    case .success(let image):
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                    case .failure:
+                        Image(systemName: "exclamationmark.triangle")
+                    @unknown default:
+                        EmptyView()
+                    }
+                }
+                
+                Text(post.description)
+                    .font(.headline)
+                    .foregroundColor(.gray)
+                    .padding(.bottom, 5)
+                Text(post.content)
+                    .font(.body)
+                    .padding(.bottom, 5)
+                Text(post.author)
+                    .font(.footnote)
+                    .padding(.bottom, 5)
+                
+                Button(action: {
+                    self.showAddCommentView = true
+                }) {
+                    Text("Add Comment")
+                }
+                .sheet(isPresented: $showAddCommentView) {
+                    AddCommentView(post: post)
+                }
+            }
+            .padding(.horizontal, 10)
+        }
+        .navigationTitle(post.title)
+        .onAppear {
+            viewModel.fetchNews()
+        }
+    }
+}
+
+
+
+
+
+
+struct AddCommentView: View {
+    @Environment(\.presentationMode) var presentationMode
+    @State var commentContent = ""
+    
+    let post: NewsPost
+    
+    var body: some View {
+        VStack {
+            Text("Add a Comment")
+                .font(.headline)
+            
+            Form {
+                Section(header: Text("Comment Content")) {
+                    TextField("Comment Content", text: $commentContent)
+                }
+            }
+            
+            Button(action: {
+                addComment()
+            }) {
+                Text("Submit Comment")
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color.green)
+                    .cornerRadius(10)
+            }
+        }
+        .padding()
+    }
+    
+    func addComment() {
+        // Make API request to add comment
+        // Once comment is added, dismiss view
+        presentationMode.wrappedValue.dismiss()
+    }
+}

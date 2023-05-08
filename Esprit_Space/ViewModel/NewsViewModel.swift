@@ -19,15 +19,27 @@ class NewsViewModel: ObservableObject {
         guard let url = URL(string: "http://localhost:5000/news/getAllNews") else {
             fatalError("Invalid URL")
         }
+        print("checkpoint1")
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data, error == nil else {
+                print("checkpoint2")
+
                 print("Error fetching news posts: \(error?.localizedDescription ?? "Unknown error")")
                 return
+
             }
+            print("checkpoint3")
+
             if let decodedData = try? JSONDecoder().decode([NewsPost].self, from: data) {
+                print("checkpoint4")
+
                 DispatchQueue.main.async {
+                    print("checkpoint5")
+
                     self.newsPosts = decodedData
                 }
+                print("checkpoint6")
+
             }
         }.resume()
     }
@@ -70,4 +82,68 @@ class NewsViewModel: ObservableObject {
        }
     
     
-}
+    
+    
+    
+    
+    
+    func addComment(to post: NewsPost, comment: NewsPost.Comment) {
+        // Create the request URL
+        let urlString = "http://localhost:5000/news/getComment/64552540422e1636e350e4fb\(post.id)"
+        guard let url = URL(string: urlString) else {
+            print("Invalid URL: \(urlString)")
+            return
+        }
+        
+        // Create the request body
+        let encoder = JSONEncoder()
+        guard let body = try? encoder.encode(comment) else {
+            print("Failed to encode comment")
+            return
+        }
+        
+        // Create the request
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = body
+        
+        // Send the request
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard error == nil else {
+                print("Error adding comment: \(error!)")
+                return
+            }
+            
+            // Parse the response
+            if let httpResponse = response as? HTTPURLResponse,
+               (200...299).contains(httpResponse.statusCode) {
+                // Comment was added successfully
+                print("Comment added successfully")
+            } else {
+                print("Failed to add comment")
+            }
+        }.resume()
+    }
+
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    }
+
+

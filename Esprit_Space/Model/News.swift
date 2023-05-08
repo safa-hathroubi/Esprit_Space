@@ -15,7 +15,7 @@ struct NewsPost: Codable, Identifiable {
     let author: String
     let imageUrl: String
     let iduser: String?
-    var comment: [Comment]
+    var comment: [Comment]? = []
 
     enum CodingKeys: String, CodingKey {
         case id = "_id"
@@ -25,13 +25,14 @@ struct NewsPost: Codable, Identifiable {
         case content
         case imageUrl
         case iduser = "iduser"
+        case comment
     }
     
     struct Comment: Codable, Identifiable {
+        let commentAuthor: String
+        let commentContent: String
         let id: String
-        let postId: String
-        let text: String
-        let author: String
+        //let postId: String
         let timestamp: Date
     }
 }
