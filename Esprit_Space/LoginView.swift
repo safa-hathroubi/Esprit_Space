@@ -1,6 +1,8 @@
 import SwiftUI
+import LocalAuthentication
 
 struct LoginView: View {
+    @State private var unlocked = false
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var showError = false
@@ -9,6 +11,7 @@ struct LoginView: View {
     @ObservedObject var viewModel = UserViewModel()
     @State private var isShowingHomeView = false
     @State private var isReset1Active = false
+    @AppStorage("stored_User") var user = "emna.ouenniche@esprit.tn"
 
     
     
@@ -38,14 +41,34 @@ struct LoginView: View {
                     
                     
                      
-                    Button(action: login) {
-                        Text("Login")
-                            .foregroundColor(.white)
-                            .padding(.vertical, 10)
-                            .frame(maxWidth: .infinity)
-                            .background(Color.red)
-                            .cornerRadius(10)
-                    }
+//                    Button(action: login) {
+//                        Text("Login")
+//                            .foregroundColor(.white)
+//                            .padding(.vertical, 10)
+//                            .frame(maxWidth: .infinity)
+//                            .background(Color.red)
+//                            .cornerRadius(10)
+//                    }
+                    HStack {
+                        Button(action: login) {
+                            Text("Login")
+                                .foregroundColor(.white)
+                                .padding(.vertical, 10)
+                                .frame(maxWidth: .infinity)
+                                .background(Color.red)
+                                .cornerRadius(10)
+                        }
+                        if getBioMetricStatus() {
+                                         Button(action: Authent) {
+                                             Image(systemName: LAContext().biometryType == .faceID ? "faceid" : "touchid")
+                                                 .font(.title)
+                                                 .foregroundColor(.white)
+                                                 .padding()
+                                                 .background(Color.red)
+                                                 .clipShape(Circle())
+                                         }
+                                     }
+                    } 
                     
                     NavigationLink(destination: SignupView()) {
                         Text("Don't have an account? Sign up")
@@ -87,7 +110,45 @@ struct LoginView: View {
             showError = true
         })
     }
+    func getBioMetricStatus()->Bool{
+         
+         let scanner = LAContext()
+         
+         if email == user && scanner.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: .none)
+             
+         {
+             
+             return true
+             
+         }
+         
+         return false
+         
+     }
+    func Authent(){
+        let context = LAContext()
+        var error: NSError?
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error)
+        {
+            let reason = "We Need to scan your face. "
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics,
+            localizedReason: reason)
+            {success, AuthenticationError in
+                if success{
+                    //authent success
+                    unlocked = true
+                    isShowingHomeView = true
+                }else{
+                    //there was a problem
+                }
+            }
+        }else{
+            //no biometrics
+        }
+    }
 }
+
+
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {

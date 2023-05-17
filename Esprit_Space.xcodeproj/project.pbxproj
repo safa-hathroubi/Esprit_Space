@@ -25,6 +25,9 @@
 		D766A9A429E6DD800059A807 /* forgot3.swift in Sources */ = {isa = PBXBuildFile; fileRef = D766A9A329E6DD7F0059A807 /* forgot3.swift */; };
 		D7982CED29D2EEF10005257B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7982CEC29D2EEF10005257B /* User.swift */; };
 		D7982CF029D2F1060005257B /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7982CEF29D2F1060005257B /* UserViewModel.swift */; };
+		D7C26E4D2A1516D4004797CC /* FaceID.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C26E4C2A1516D4004797CC /* FaceID.swift */; };
+		D7C26E4F2A151CA4004797CC /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C26E4E2A151CA4004797CC /* RootView.swift */; };
+		D7D1218C2A0649B20013F0B0 /* Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D1218B2A0649B20013F0B0 /* Notes.swift */; };
 		D7E7569F29F95F6E00E88B61 /* TimePDFView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E7569E29F95F6E00E88B61 /* TimePDFView.swift */; };
 		E4B5F20B29C1106F00BD201D /* Esprit_SpaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B5F20A29C1106F00BD201D /* Esprit_SpaceApp.swift */; };
 		E4B5F20D29C1106F00BD201D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B5F20C29C1106F00BD201D /* ContentView.swift */; };
@@ -81,6 +84,9 @@
 		D766A9A329E6DD7F0059A807 /* forgot3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = forgot3.swift; sourceTree = "<group>"; };
 		D7982CEC29D2EEF10005257B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D7982CEF29D2F1060005257B /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		D7C26E4C2A1516D4004797CC /* FaceID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceID.swift; sourceTree = "<group>"; };
+		D7C26E4E2A151CA4004797CC /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		D7D1218B2A0649B20013F0B0 /* Notes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notes.swift; sourceTree = "<group>"; };
 		D7E7569E29F95F6E00E88B61 /* TimePDFView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePDFView.swift; sourceTree = "<group>"; };
 		E4B5F20729C1106F00BD201D /* Esprit_Space.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Esprit_Space.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4B5F20A29C1106F00BD201D /* Esprit_SpaceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Esprit_SpaceApp.swift; sourceTree = "<group>"; };
@@ -216,6 +222,9 @@
 				D766A9A329E6DD7F0059A807 /* forgot3.swift */,
 				D766A99F29E6DD260059A807 /* ForgetView.swift */,
 				D7E7569E29F95F6E00E88B61 /* TimePDFView.swift */,
+				D7D1218B2A0649B20013F0B0 /* Notes.swift */,
+				D7C26E4C2A1516D4004797CC /* FaceID.swift */,
+				D7C26E4E2A151CA4004797CC /* RootView.swift */,
 			);
 			path = Esprit_Space;
 			sourceTree = "<group>";
@@ -492,6 +501,7 @@
 				0A8651E729E820FD00F1C24F /* EditProfileView.swift in Sources */,
 				0AA4E97F29CB7ADA00DD44EB /* HomeView.swift in Sources */,
 				D766A9A029E6DD260059A807 /* ForgetView.swift in Sources */,
+				D7C26E4D2A1516D4004797CC /* FaceID.swift in Sources */,
 				D766A9A429E6DD800059A807 /* forgot3.swift in Sources */,
 				0A8651EB29E8216900F1C24F /* Note.swift in Sources */,
 				0A8651E929E8214B00F1C24F /* NotesViewModel.swift in Sources */,
@@ -508,9 +518,11 @@
 				0A2461CD29EC22560044D94B /* ClasseViewModel.swift in Sources */,
 				D7982CED29D2EEF10005257B /* User.swift in Sources */,
 				0A8651E529E81FFF00F1C24F /* HomepageView.swift in Sources */,
+				D7D1218C2A0649B20013F0B0 /* Notes.swift in Sources */,
 				0A2461CF29EC22600044D94B /* Classe.swift in Sources */,
 				D766A9A229E6DD6E0059A807 /* forgot2.swift in Sources */,
 				E4B5F23A29C1125D00BD201D /* SignupView.swift in Sources */,
+				D7C26E4F2A151CA4004797CC /* RootView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -672,6 +684,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Esprit_Space/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "We Need to scan your face.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -701,6 +714,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Esprit_Space/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "We Need to scan your face.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
