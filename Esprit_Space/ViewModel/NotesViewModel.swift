@@ -11,7 +11,7 @@ class NotesViewModel: ObservableObject {
     @Published var notes = [Note]()
     
     func fetchNotes(forUserId userId: String) {
-        guard let url = URL(string: "http://localhost:5000/notes/AllNotes") else { return }
+        guard let url = URL(string: "http://172.17.3.28:5500/notes/AllNotes") else { return }
         
         let body: [String: Any] = ["iduser": userId]
         let jsonData = try? JSONSerialization.data(withJSONObject: body)

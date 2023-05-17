@@ -9,10 +9,9 @@ import SwiftUI
 import BottomBar_SwiftUI
 
 let items: [BottomBarItem] = [
-    BottomBarItem(icon: "star.fill", title: "Events", color: .pink),
+    BottomBarItem(icon: "house.fill", title: "Events", color: .pink),
     BottomBarItem(icon: "list.bullet", title: "Notes", color: .purple),
-    BottomBarItem(icon: "house.fill", title: "", color: .blue),
-    BottomBarItem(icon: "newspaper", title: "news", color: .green),
+    BottomBarItem(icon: "newspaper", title: "News", color: .green),
     BottomBarItem(icon: "person.fill", title: "Profile", color: .orange)
 ]
 
@@ -46,15 +45,10 @@ var navigateButton: some View {
     }
 }
 
-
-
 var body: some View {
     VStack {
         Spacer()
-
-
         Spacer()
-
         navigateButton
         }
     }
@@ -74,12 +68,12 @@ struct HomepageView : View {
             return AnyView(EventsUIView())
         case "Notes":
             return AnyView(NotesView())
-        case "Timetable":
-            return AnyView(HomeView())
+        case "News":
+            return AnyView(NewsUIView())
         case "Profile":
             return AnyView(StudentProfileView())
         default:
-            return AnyView(NewsUIView())
+            return AnyView(EventsUIView())
         }
     }
 

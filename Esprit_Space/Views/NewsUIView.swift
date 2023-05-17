@@ -201,6 +201,18 @@ struct NewsDetailView: View {
                 Text(post.author)
                     .font(.footnote)
                     .padding(.bottom, 5)
+                List {
+                    ForEach(post.comment ?? []) { comment in
+                        VStack(alignment: .leading, spacing: 5) {
+                            Text(comment.commentAuthor)
+                                .font(.headline)
+                            Text(comment.commentContent)
+                                .font(.subheadline)
+                                .foregroundColor(.gray)
+                           
+                        }
+                    }
+                }
                 
                 Button(action: {
                     self.showAddCommentView = true

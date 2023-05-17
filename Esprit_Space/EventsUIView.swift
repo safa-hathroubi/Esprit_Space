@@ -110,7 +110,7 @@ struct AddEventButton: View {
         }) {
             ZStack {
                 Circle()
-                    .foregroundColor(.blue)
+                    .foregroundColor(.red)
                     .frame(width: 60, height: 60)
                     .shadow(radius: 5)
                 Image(systemName: "plus")

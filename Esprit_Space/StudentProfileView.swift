@@ -222,6 +222,3 @@ struct StudentProfileView: View {
     }
 
 }
-
-
-    

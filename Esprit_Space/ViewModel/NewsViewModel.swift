@@ -16,7 +16,7 @@ class NewsViewModel: ObservableObject {
     func fetchNews() {
         // Make API call to fetch news posts and update newsPosts array
         // Here's an example using URLSession and Codable
-        guard let url = URL(string: "http://localhost:5000/news/getAllNews") else {
+        guard let url = URL(string: "http://172.17.3.28:5500/news/getAllNews") else {
             fatalError("Invalid URL")
         }
         print("checkpoint1")
@@ -52,7 +52,7 @@ class NewsViewModel: ObservableObject {
     
     func addNews(title: String, description: String, content: String, author: String, iduser: String, imageUrl: UIImage) {
         print("checkpoint 1")
-           let url = URL(string: "http://localhost:5000/news/createNews")!
+           let url = URL(string: "http://172.17.3.28:5500/news/createNews")!
            let headers: HTTPHeaders = ["Content-type": "multipart/form-data"]
         print("checkpoint 2")
            AF.upload(multipartFormData: { multipartFormData in
@@ -89,7 +89,7 @@ class NewsViewModel: ObservableObject {
     
     func addComment(to post: NewsPost, comment: NewsPost.Comment) {
         // Create the request URL
-        let urlString = "http://localhost:5000/news/getComment/64552540422e1636e350e4fb\(post.id)"
+        let urlString = "http://172.17.3.28:5500/news/getComment/64552540422e1636e350e4fb\(post.id)"
         guard let url = URL(string: urlString) else {
             print("Invalid URL: \(urlString)")
             return

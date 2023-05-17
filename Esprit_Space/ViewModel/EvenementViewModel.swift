@@ -17,14 +17,14 @@ class EventViewModel: ObservableObject {
     @Published var events = [Evenement]()
     @Published var isLoading = false
     
-    private let baseURL = "http://localhost:5000/"
+    private let baseURL = "http://172.17.3.28:5500/"
     
     // MARK: - Public Methods
     
 
     
     func retrieveEvents() {
-           guard let url = URL(string: "http://localhost:5000/event/getAllEv") else {
+           guard let url = URL(string: "http://172.17.3.28:5500/event/getAllEv") else {
                return
            }
            URLSession.shared.dataTask(with: url) { data, response, error in
@@ -91,7 +91,7 @@ class EventViewModel: ObservableObject {
     
     func addEvent(name: String, image: UIImage, date: String, organizer: String, description: String, price: String, iduser: String) {
 
-        let url = URL(string: "http://localhost:5000/event/createEv")!
+        let url = URL(string: "http://172.17.3.28:5500/event/createEv")!
         let headers: HTTPHeaders = ["Content-type": "multipart/form-data"]
 
         AF.upload(multipartFormData: { multipartFormData in
