@@ -27,9 +27,9 @@ struct Notes: View {
                     .background(Color.red)
                 Divider()
                 HStack {
-                    Text(user.matiere ?? "-").foregroundColor(.black).padding(10)
-                    Text(user.cc ?? "-").foregroundColor(.black).padding(10)
-                    Text(user.examen ?? "-").foregroundColor(.black).padding(10)
+                    Text(user.UserMatiere ?? "-").foregroundColor(.black).padding(10)
+                    Text(user.Usercc ?? "-").foregroundColor(.black).padding(10)
+                    Text(user.UserExamen ?? "-").foregroundColor(.black).padding(10)
                 }.background(Color.white)
                 .cornerRadius(10)
                 .padding(.horizontal)

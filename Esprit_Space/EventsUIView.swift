@@ -46,7 +46,7 @@ struct EventRowView: View {
                 .cornerRadius(10)
                 
                 VStack(alignment: .leading, spacing: 10) {
-                    Text(event.name)
+                    Text(event.name).foregroundColor(.black)
                         .font(.headline)
                         .lineLimit(1) // limit to one line to avoid text overflowing
                     Text(event.description)
@@ -95,7 +95,7 @@ struct EventsUIView: View {
                 .padding(.horizontal)
             }.padding(.top, 10)
                 
-            .navigationTitle("Top Events")
+            .navigationTitle("Events")
                  }.navigationBarItems(trailing: AddEventButton())        }
         .onAppear {
             viewModel.retrieveEvents()

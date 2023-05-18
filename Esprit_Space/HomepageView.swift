@@ -9,10 +9,10 @@ import SwiftUI
 import BottomBar_SwiftUI
 
 let items: [BottomBarItem] = [
-    BottomBarItem(icon: "house.fill", title: "Events", color: .pink),
-    BottomBarItem(icon: "list.bullet", title: "Notes", color: .purple),
-    BottomBarItem(icon: "newspaper", title: "News", color: .green),
-    BottomBarItem(icon: "person.fill", title: "Profile", color: .orange)
+    BottomBarItem(icon: "house.fill", title: "Events", color: .red),
+    BottomBarItem(icon: "list.bullet", title: "Notes", color: .red),
+    BottomBarItem(icon: "newspaper", title: "News", color: .red),
+    BottomBarItem(icon: "person.fill", title: "Profile", color: .red)
 ]
 
 struct BasicView: View {

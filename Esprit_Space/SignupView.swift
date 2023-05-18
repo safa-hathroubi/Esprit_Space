@@ -29,21 +29,28 @@ struct SignupView: View {
     var body: some View {
         NavigationView {
             ZStack {
-            /*    Image("HD-wallpaper-simple-abstract-design-black-flat-modern-red-shapes-waves-white")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-                    .ignoresSafeArea()
-                */
                 VStack {
-                    Image("logo-esprit-2.b8fedba0")
+                                   Image("logo-esprit")
+                                       .resizable()
+                                       .aspectRatio(contentMode: .fit)
+                                       .frame(height: 80)
+                                       .padding(.top, 20)
+                                   Spacer()
+                               }
+                               
+                
+                
+                VStack {
+                   
+                    
+                    Image("register")
                         .resizable()
                         .aspectRatio(contentMode: .fill)
-                        .frame(width: 80, height: 220)
+                        .frame(width: 100, height: 220)
                         .ignoresSafeArea()
                     Spacer()
                 }
-                .padding(.top, 50) // add some padding to the top of the VStack
+                .padding(.top, 120) // add some padding to the top of the VStack
                 
                 VStack(spacing: 10) {
                     Text("Create an Account")
@@ -70,7 +77,14 @@ struct SignupView: View {
                             Alert(title: Text("Error"), message: Text(errorMessage), dismissButton: .default(Text("OK")))
                         }
                     
-                    Button(action: signup) {
+                    Button(action: {
+                        if isValidEmail(email) {
+                            signup()
+                        } else {
+                            errorMessage = "Invalid email format"
+                            showingAlert = true
+                        }
+                    }) {
                         Text("Sign Up")
                             .foregroundColor(.white)
                             .padding(.vertical, 10)
@@ -80,7 +94,7 @@ struct SignupView: View {
                     }
                     
                     NavigationLink(destination: LoginView()) {
-                        Text("Already have an account? Login")
+                        Text("Already have an account? Login").foregroundColor(.black)
                     }
                     
                     NavigationLink(
@@ -93,17 +107,18 @@ struct SignupView: View {
                 .padding()
                 .cornerRadius(10)
                 .padding(.horizontal, 20)
-                .padding(.top, 300)
+                .padding(.top, 350)
                 .padding(.bottom, 30)
             }
         }
     }
     
     func isValidEmail(_ email: String) -> Bool {
-        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailRegex = "[A-Z0-9a-z._%+-]+@esprit\\.tn"
         let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailRegex)
         return emailPredicate.evaluate(with: email)
     }
+    
     private func signup() {
         viewModel.Signup(email: email, password: password, onSuccess: { title, message in
             // Show dialog with title and message
@@ -117,5 +132,4 @@ struct SignupView: View {
             showError = true
         })
     }
-    }
-    
+}

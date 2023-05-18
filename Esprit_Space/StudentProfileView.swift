@@ -54,7 +54,7 @@ struct StudentProfileView: View {
                 .fontWeight(.bold)*/
             VStack {
                 if let user = user {
-                    Text(user.name!)
+                    Text(user.UserName!)
                         .foregroundColor(.black)
                     .font(.title)
                     
@@ -133,7 +133,7 @@ struct StudentProfileView: View {
                             .foregroundColor(.black)
                             .font(.headline)
                             .padding(.bottom, 5)
-                        Text(user.classe!)
+                        Text(user.UserClasse!)
                             .foregroundColor(.black)
                         .font(.title)
                         
@@ -176,14 +176,13 @@ struct StudentProfileView: View {
                     destination: EditProfileView(email:email),
                     isActive: $isShowingEditProfileView,
                     label: {
-                        Text("Change password")
+                        Text("Edit Profile")
                             .foregroundColor(.white)
                             .padding(.vertical, 10)
                             .frame(maxWidth: .infinity)
                             .background(Color.red)
                             .cornerRadius(10)
                     })
-                .navigationBarBackButtonHidden(true)
 
             }
 

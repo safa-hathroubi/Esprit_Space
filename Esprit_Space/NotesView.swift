@@ -19,8 +19,67 @@ struct NotesView_Previews: PreviewProvider {
         NotesView()
     }
 }
+
+struct NotesView: View {
+    @StateObject var userViewModel = UserViewModel()
+    
+    var body: some View {
+        NavigationView {
+            VStack {
+                if let user = userViewModel.currentUser {
+                    HStack {
+                        Text("Matière").foregroundColor(.white).bold()
+                        Text("Date").foregroundColor(.white).bold()
+                    }
+                    .padding(.horizontal)
+                    .background(Color.red)
+                    
+                    Divider()
+                    
+                    HStack {
+                        Text(user.UserAbsences ?? "-").foregroundColor(.black).padding(10)
+                        Text(user.UserDateabs ?? "-").foregroundColor(.black).padding(10)
+                    }
+                    .background(Color.white)
+                    .cornerRadius(10)
+                    .padding(.horizontal)
+                } else {
+                    Text("Aucune donnée à afficher").foregroundColor(.white).padding()
+                }
+                
+                NavigationLink(destination: Notes().navigationBarBackButtonHidden(true).navigationBarHidden(true)) {
+                    Text("Consultez vos notes").font(.title2).bold()
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(Color.blue)
+                        .cornerRadius(10)
+                        .padding(.horizontal)
+                }
+                .disabled(userViewModel.isLoading)
+                .opacity(userViewModel.isLoading ? 0.5 : 1)
+                .padding(.top, 10)
+                
+                Spacer()
+            }
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text("Absences")
+                }
+            }
+        }
+        .navigationViewStyle(StackNavigationViewStyle())
+    }
+}
+
+
+
+/*
 struct NotesView: View {
     @State private var user: User?
+    @StateObject var viewModel = UserViewModel()
+
     
     var body: some View {
         NavigationView {
@@ -36,8 +95,8 @@ struct NotesView: View {
                     Divider()
                     
                     HStack {
-                        Text(user.absences ?? "-").foregroundColor(.black).padding(10)
-                        Text(user.dateabs ?? "-").foregroundColor(.black).padding(10)
+                        Text(user.UserAbsences ?? "-").foregroundColor(.black).padding(10)
+                        Text(user.UserDateabs ?? "-").foregroundColor(.black).padding(10)
                     }
                     .background(Color.white)
                     .cornerRadius(10)
@@ -54,7 +113,6 @@ struct NotesView: View {
                         .background(Color.red)
                         .cornerRadius(10)
                 }
-                .navigationBarBackButtonHidden(true)
             }
             .background(Color.white)
             .cornerRadius(10)
@@ -76,3 +134,4 @@ struct NotesView: View {
         }
     }
 }
+*/

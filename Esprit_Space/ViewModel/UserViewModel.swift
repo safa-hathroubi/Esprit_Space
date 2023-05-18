@@ -22,6 +22,7 @@ class UserViewModel: ObservableObject{
     
     
     func login(email: String, password: String, onSuccess:@escaping (_ email: String)->Void , onFailure:@escaping(_ titre:String,_ message:String)->Void){
+            isLoading = true
             AF.request(baseURL+"user/login" ,
                        method: .post,
                        parameters: [ "email" : email, "password" : password ],
@@ -39,72 +40,27 @@ class UserViewModel: ObservableObject{
                     
                     switch statusCode {
                     case 200:
-                        guard let email = jsonData["email"] as? String,
-                              let password = jsonData["password"] as? String,
-                                let classe = jsonData["classe"] as? String,
-                              let name = jsonData["name"] as? String,
-                              let absences = jsonData["absences"] as? String,
-                              let dateabs = jsonData["dateabs"] as? String,
-                              let matiere = jsonData["matiere"] as? String,
-                              let cc = jsonData["cc"] as? String,
-                              let examen = jsonData["examen"] as? String
-
-
-
-
-
-                        else {
+                        guard let email = jsonData["email"] as? String else {
                             onFailure("Error", "Invalid response format22")
                             return
                         }
-                        let user = User(email: email,password: password,classe: nil, name: nil ,absences: nil , dateabs: nil , matiere:nil , cc: nil, examen: nil)
-                        self.currentUser = user
-                        // Store token in UserDefaults
-                        // UserDefaults.standard.set(token, forKey: "token")
-                        print(email)
-                        print(classe)
-                        
-                        let user2 = User(email: email, password: password, classe: classe, name: name ,absences: absences ,dateabs: dateabs , matiere: matiere, cc: cc ,examen: examen)
-                        
-                        let encoder = JSONEncoder()
-
-                        if let encodedPerson = try? encoder.encode(user2) {
-                            // Stocker les données encodées dans UserDefaults
-                            UserDefaults.standard.set(encodedPerson, forKey: "user")
-                            
-                            
-                        }
-                        
-                        if let data = UserDefaults.standard.data(forKey: "user") {
-                            // Décoder les données en utilisant JSONDecoder
-                               let decoder = JSONDecoder()
-                               if let decodedPerson = try? decoder.decode(User.self, from: data) {
-                                   // Utiliser l'instance de Person décoder
-                                   print(decodedPerson.email) // Output: "Alice"
-                                   print(decodedPerson.classe) // Output: 25
-                                   print(decodedPerson.name) // Output: 25
-                                   print(decodedPerson.absences) // Output: 25
-                                   print(decodedPerson.dateabs) // Output: 25
-                                   print(decodedPerson.matiere) // Output: 25
-                                   print(decodedPerson.cc) // Output: 25
-                                   print(decodedPerson.examen) // Output: 25
-                               }
-                           }
-
-
-                      /*  UserDefaults.standard.set(email, forKey: "email")
-                        UserDefaults.standard.set(password, forKey: "password")
-                        UserDefaults.standard.set(classe, forKey: "classe")
-                        UserDefaults.standard.synchronize()
-
-                        let email2 = UserDefaults.standard .data(forKey: "email")
-                        UserDefaults.standard.synchronize()
-                        print(email2)
-                        let password2 = UserDefaults.standard .data(forKey: "password")*/
-                        // Set isAuthenticated to true and navigate to home page
-                        self.isAuthenticated = true
-                        onSuccess(email)
-                        
+                        AF.request("http://172.17.10.95:5000/user/\(email)")
+                            .validate(statusCode: 200..<300)
+                            .responseDecodable(of: User.self) { response in
+                                switch response.result {
+                                case .success(let user):
+                                    self.currentUser = user
+                                    let encoder = JSONEncoder()
+                                    if let encodedPerson = try? encoder.encode(user) {
+                                        UserDefaults.standard.set(encodedPerson, forKey: "user")
+                                    }
+                                    self.isAuthenticated = true
+                                    onSuccess(email)
+                                case .failure(let error):
+                                    print(error.localizedDescription)
+                                    onFailure("Error", "Network request failed")
+                                }
+                            }
                     case 400:
                         onFailure("Login failed", "Invalid password")
                     case 402:
@@ -116,12 +72,112 @@ class UserViewModel: ObservableObject{
                     print(error)
                     onFailure("Error", "Network request failed")
                 }
+                self.isLoading = false
             }
-            
-            
-            
         }
+    
+    
+    
+   /* func login(email: String, password: String, onSuccess:@escaping (_ email: String)->Void , onFailure:@escaping(_ titre:String,_ message:String)->Void){
+        AF.request(baseURL+"user/login" ,
+                   method: .post,
+                   parameters: [ "email" : email, "password" : password ],
+                   encoding: JSONEncoding.default)
+        .validate(statusCode: 200..<403)
+        .validate(contentType: ["application/json"])
+        .responseJSON { response in
+            switch response.result {
+            case .success(let data):
+                guard let jsonData = data as? [String: Any],
+                      let statusCode = response.response?.statusCode else {
+                    onFailure("Error", "Invalid response format11")
+                    return
+                }
+                
+                switch statusCode {
+                case 200:
+                    guard let email = jsonData["email"] as? String,
+                          let password = jsonData["password"] as? String,
+                            let UserClasse = jsonData["UserClasse"] as? String,
+                          let UserName = jsonData["UserName"] as? String,
+                          let UserAbsences = jsonData["UserAbsences"] as? String,
+                          let UserDateabs = jsonData["UserDateabs"] as? String,
+                          let UserMatiere = jsonData["UserMatiere"] as? String,
+                          let Usercc = jsonData["Usercc"] as? String,
+                          let UserExamen = jsonData["UserExamen"] as? String
 
+
+
+
+
+                    else {
+                        onFailure("Error", "Invalid response format22")
+                        return
+                    }
+                    let user = User(email: email,password: password,UserClasse: nil, UserName: nil ,UserAbsences: nil , UserDateabs: nil , UserMatiere:nil , Usercc: nil, UserExamen: nil)
+                    self.currentUser = user
+                    // Store token in UserDefaults
+                    // UserDefaults.standard.set(token, forKey: "token")
+                    
+                    
+                    let user2 = User(email: email, password: password, UserClasse: UserClasse, UserName: UserName ,UserAbsences: UserAbsences ,UserDateabs: UserDateabs , UserMatiere: UserMatiere, Usercc: Usercc ,UserExamen: UserExamen)
+                    
+                    let encoder = JSONEncoder()
+
+                    if let encodedPerson = try? encoder.encode(user2) {
+                        // Stocker les données encodées dans UserDefaults
+                        UserDefaults.standard.set(encodedPerson, forKey: "user")
+                        
+                        
+                    }
+                    
+                    if let data = UserDefaults.standard.data(forKey: "user") {
+                        // Décoder les données en utilisant JSONDecoder
+                           let decoder = JSONDecoder()
+                           if let decodedPerson = try? decoder.decode(User.self, from: data) {
+                               // Utiliser l'instance de Person décoder
+                               print(decodedPerson.email) // Output: "Alice"
+                               print(decodedPerson.UserClasse) // Output: 25
+                               print(decodedPerson.UserName) // Output: 25
+                               print(decodedPerson.UserAbsences) // Output: 25
+                               print(decodedPerson.UserDateabs) // Output: 25
+                               print(decodedPerson.UserMatiere) // Output: 25
+                               print(decodedPerson.Usercc) // Output: 25
+                               print(decodedPerson.UserExamen) // Output: 25
+                           }
+                       }
+
+
+                  /*  UserDefaults.standard.set(email, forKey: "email")
+                    UserDefaults.standard.set(password, forKey: "password")
+                    UserDefaults.standard.set(classe, forKey: "classe")
+                    UserDefaults.standard.synchronize()
+
+                    let email2 = UserDefaults.standard .data(forKey: "email")
+                    UserDefaults.standard.synchronize()
+                    print(email2)
+                    let password2 = UserDefaults.standard .data(forKey: "password")*/
+                    // Set isAuthenticated to true and navigate to home page
+                    self.isAuthenticated = true
+                    print(self.isAuthenticated)
+                    onSuccess(email)
+                    
+                case 400:
+                    onFailure("Login failed", "Invalid password")
+                case 402:
+                    onFailure("Account not activated", "Your email address has not been verified")
+                default:
+                    onFailure("User not found", "This email address is not associated with any account")
+                }
+            case .failure(let error):
+                print(error)
+                onFailure("Error", "Network request failed")
+            }
+        }
+        
+        
+        
+    }*///OLD LOGIN FUNCTION
     
     func verifyOTP(email: String, otp: String, onSuccess: @escaping () -> Void, onFailure: @escaping (_ title: String, _ message: String) -> Void) {
         AF.request(baseURL+"user/verifyotp",

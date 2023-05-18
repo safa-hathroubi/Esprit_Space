@@ -261,7 +261,7 @@ struct AddCommentView: View {
                     .foregroundColor(.white)
                     .padding()
                     .frame(maxWidth: .infinity)
-                    .background(Color.green)
+                    .background(Color.red)
                     .cornerRadius(10)
             }
         }
