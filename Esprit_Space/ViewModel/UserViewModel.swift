@@ -18,7 +18,7 @@ class UserViewModel: ObservableObject{
     @Published var isLoading: Bool = false
     @Published var isAuthenticated = false
     @Published var isRegistred = false
-    private let baseURL = "http://172.17.4.144:5000/"
+    private let baseURL = "http://172.17.10.95:5000/"
     
     func login(email: String, password: String, onSuccess:@escaping (_ email: String)->Void , onFailure:@escaping(_ titre:String,_ message:String)->Void){
         AF.request(baseURL+"user/login" ,
@@ -123,7 +123,7 @@ class UserViewModel: ObservableObject{
     }
     
     func verifyOTP(email: String, otp: String, onSuccess: @escaping () -> Void, onFailure: @escaping (_ title: String, _ message: String) -> Void) {
-        AF.request("http://172.17.11.175:5000/user/verifyotp",
+        AF.request(baseURL+"user/verifyotp",
                    method: .post,
                    parameters: ["email": email ,"otp": otp],
                    encoding: JSONEncoding.default)
@@ -307,7 +307,7 @@ class UserViewModel: ObservableObject{
     
     
     func forgotPassword(email: String, onSuccess: @escaping () -> Void, onFailure: @escaping (_ title: String, _ message: String) -> Void) {
-        AF.request("http://172.17.11.175:5000/user/forgotPassword",
+        AF.request(baseURL+"user/forgotPassword",
                    method: .post,
                    parameters: ["email": email],
                    encoding: JSONEncoding.default)
