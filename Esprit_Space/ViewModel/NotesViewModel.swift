@@ -9,9 +9,10 @@ import Foundation
 
 class NotesViewModel: ObservableObject {
     @Published var notes = [Note]()
+    private let baseURL = "http://172.17.10.95:5000/"
     
     func fetchNotes(forUserId userId: String) {
-        guard let url = URL(string: "http://172.17.3.28:5500/notes/AllNotes") else { return }
+        guard let url = URL(string: baseURL + "notes/AllNotes") else { return }
         
         let body: [String: Any] = ["iduser": userId]
         let jsonData = try? JSONSerialization.data(withJSONObject: body)

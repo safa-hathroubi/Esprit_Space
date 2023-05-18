@@ -12,7 +12,7 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            HomepageView()
+            LoginView()
                 .navigationTitle("Esprit Space")
         }
     }

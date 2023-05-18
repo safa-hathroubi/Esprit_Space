@@ -29,11 +29,21 @@ struct SignupView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Image("HD-wallpaper-simple-abstract-design-black-flat-modern-red-shapes-waves-white")
+            /*    Image("HD-wallpaper-simple-abstract-design-black-flat-modern-red-shapes-waves-white")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
                     .ignoresSafeArea()
+                */
+                VStack {
+                    Image("logo-esprit-2.b8fedba0")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 80, height: 220)
+                        .ignoresSafeArea()
+                    Spacer()
+                }
+                .padding(.top, 50) // add some padding to the top of the VStack
                 
                 VStack(spacing: 10) {
                     Text("Create an Account")
