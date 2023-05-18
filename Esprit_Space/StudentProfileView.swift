@@ -23,6 +23,7 @@ struct StudentProfileView: View {
     
     @State private var isShowingEditProfileView = false
     @State private var user: User?
+    @AppStorage("isDarkMode") private var isDarkMode = false
 
     @State private var email = String(decoding: UserDefaults.standard.data(forKey: "email") ?? Data(), as: UTF8.self)
     
@@ -30,7 +31,15 @@ struct StudentProfileView: View {
 
     var body: some View {
         
+        VStack{
 
+                                   Toggle(isOn: $isDarkMode){
+
+                                       Text("Dark Mode")
+
+                                   }
+
+                               }
  
         VStack(spacing: 20) {
            
@@ -167,13 +176,14 @@ struct StudentProfileView: View {
                     destination: EditProfileView(email:email),
                     isActive: $isShowingEditProfileView,
                     label: {
-                        Text("Edit Profile")
+                        Text("Change password")
                             .foregroundColor(.white)
                             .padding(.vertical, 10)
                             .frame(maxWidth: .infinity)
                             .background(Color.red)
                             .cornerRadius(10)
                     })
+                .navigationBarBackButtonHidden(true)
 
             }
 

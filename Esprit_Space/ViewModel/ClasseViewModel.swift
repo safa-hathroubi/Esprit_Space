@@ -18,7 +18,7 @@ class ClasseViewModel: ObservableObject{
     @Published var isLoading: Bool = false
     @Published var isAuthenticated = false
     @Published var isRegistred = false
-    private let baseURL = "http://172.17.3.28:5500/"
+    private let baseURL = "http://172.17.10.95:5000/"
     
     
     

@@ -17,9 +17,11 @@ struct EventsUIView_Previews: PreviewProvider {
 
 
 
+
 struct EventRowView: View {
     let event: Evenement
-   
+    let dateFormatter = DateFormatter()
+
     var body: some View {
         NavigationLink(destination: EventDetailView(event: event)) {
             HStack(spacing: 10) { // set spacing between the image and text
@@ -53,7 +55,7 @@ struct EventRowView: View {
                         .lineLimit(2) // limit to two lines to avoid text overflowing
                     HStack {
                         Image(systemName: "calendar.circle")
-                        Text(event.date)
+                        Text(dateFormatter.string(from: Date())) // use the current date for now, you can update it later
                             .lineLimit(1) // limit to one line to avoid text overflowing
                     }
                     .foregroundColor(.gray)
@@ -66,9 +68,11 @@ struct EventRowView: View {
             .shadow(radius: 5)
             .frame(height: 100) // set a fixed height for the row
         }
+        .onAppear {
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+        }
     }
 }
-
 
 
 
@@ -134,7 +138,8 @@ struct AddEventButton: View {
 
 struct EventDetailView: View {
     let event: Evenement
-    
+    @State private var date = Date()
+
     var body: some View {
         GeometryReader { geometry in
             ScrollView {
@@ -166,8 +171,10 @@ struct EventDetailView: View {
                     
                     HStack {
                         Image(systemName: "calendar.circle")
-                        Text(event.date)
-                            .foregroundColor(.secondary)
+                        DatePicker(selection: $date, displayedComponents: [.date]) {
+                            Text("Event Date")
+                        }
+                        .foregroundColor(.secondary)
                     }
                     .padding(.top, 10)
                     
@@ -179,7 +186,3 @@ struct EventDetailView: View {
         .navigationBarTitle(event.name)
     }
 }
-
-
-
-

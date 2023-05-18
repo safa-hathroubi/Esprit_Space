@@ -11,6 +11,7 @@ struct Evenement: Codable {
     let name: String
     let image: String
     let date: String
+    let participants: Int?
     let organizer: String
     let description: String
     let price: String
@@ -20,6 +21,7 @@ struct Evenement: Codable {
         case name
         case image
         case date
+        case participants
         case organizer
         case description
         case price

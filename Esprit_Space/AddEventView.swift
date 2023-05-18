@@ -21,13 +21,13 @@ struct AddEventView: View {
     @Environment(\.presentationMode) var presentationMode
     
     @State private var name = ""
-    @State private var date = ""
     @State private var organizer = ""
     @State private var description = ""
     @State private var price = ""
     @State private var image: UIImage?
     @State private var showingImagePicker = false
     @ObservedObject var viewModel = EventViewModel()
+    @State private var date = Date()
 
     var body: some View {
         NavigationView {
@@ -47,7 +47,9 @@ struct AddEventView: View {
 
                 Section(header: Text("Event Details")) {
                     TextField("Event Name", text: $name)
-                    TextField("Event Date", text: $date)
+                    DatePicker(selection: $date, displayedComponents: [.date]) {
+                                            Text("Event Date")
+                                        }
                     TextField("Organizer", text: $organizer)
                     TextField("Description", text: $description)
                     TextField("Price", text: $price)

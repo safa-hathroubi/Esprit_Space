@@ -17,42 +17,40 @@ class EventViewModel: ObservableObject {
     @Published var events = [Evenement]()
     @Published var isLoading = false
     
-    private let baseURL = "http://172.17.3.28:5500/"
+    private let baseURL = "http://172.17.10.95:5000/"
     
     // MARK: - Public Methods
     
 
-    
     func retrieveEvents() {
-           guard let url = URL(string: "http://172.17.3.28:5500/event/getAllEv") else {
-               return
-           }
-           URLSession.shared.dataTask(with: url) { data, response, error in
-               if let error = error {
-                   print(error.localizedDescription)
-                   return
-               }
-               guard let data = data else {
-                   print("No data received")
-                   return
-               }
-               do {
+        guard let url = URL(string: baseURL + "event/getAllEv") else {
+            print("Invalid URL")
+            return
+        }
 
-                   let decoder = JSONDecoder()
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data else {
+                print("Error: \(error?.localizedDescription ?? "Unknown error")")
+                return
+            }
 
-                   decoder.dateDecodingStrategy = .iso8601 // Set the date decoding strategy for ISO 8601 dates
-                  
+            do {
+                let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
+                let events = try decoder.decode([Evenement].self, from: data)
+                DispatchQueue.main.async {
+                    self.events = events
+                }
+            } catch {
+                print("Error: \(error.localizedDescription)")
+            }
+        }
 
-                   let events = try decoder.decode([Evenement].self, from: data)
-                   DispatchQueue.main.async {
-                       self.events = events
-                       
-                                          }
-               } catch {
-                   print(error.localizedDescription)
-               }
-           }.resume()
-       }
+        task.resume()
+    }
+ 
+    
+    
    
   /*
    func addEvent(name: String, image: String, date: String, organizer: String, description: String, price: String, iduser: String) {
@@ -89,14 +87,18 @@ class EventViewModel: ObservableObject {
             }
         }*/
     
-    func addEvent(name: String, image: UIImage, date: String, organizer: String, description: String, price: String, iduser: String) {
+    func addEvent(name: String, image: UIImage, date: Date, organizer: String, description: String, price: String, iduser: String) {
 
-        let url = URL(string: "http://172.17.3.28:5500/event/createEv")!
+        let url = URL(string: "http://172.17.10.95:5000/event/createEv")!
         let headers: HTTPHeaders = ["Content-type": "multipart/form-data"]
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let dateString = dateFormatter.string(from: date)
 
         AF.upload(multipartFormData: { multipartFormData in
             multipartFormData.append(name.data(using: .utf8)!, withName: "name")
-            multipartFormData.append(date.data(using: .utf8)!, withName: "date")
+            multipartFormData.append(dateString.data(using: .utf8)!, withName: "date")
             multipartFormData.append(organizer.data(using: .utf8)!, withName: "organizer")
             multipartFormData.append(description.data(using: .utf8)!, withName: "description")
             multipartFormData.append(price.data(using: .utf8)!, withName: "price")
@@ -183,3 +185,12 @@ class EventViewModel: ObservableObject {
 
 
 
+extension DateFormatter {
+    static let iso8601Full: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        return formatter
+    }()
+}

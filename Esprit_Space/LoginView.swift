@@ -1,6 +1,8 @@
 import SwiftUI
+import LocalAuthentication
 
 struct LoginView: View {
+    @State private var unlocked = false
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var showError = false
@@ -9,18 +11,20 @@ struct LoginView: View {
     @ObservedObject var viewModel = UserViewModel()
     @State private var isShowingHomeView = false
     @State private var isReset1Active = false
-
-    
-    
+    @AppStorage("stored_User") var user = "emna.ouenniche@esprit.tn"
     
     var body: some View {
         NavigationView {
             ZStack {
-                Image("HD-wallpaper-simple-abstract-design-black-flat-modern-red-shapes-waves-white")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-                    .ignoresSafeArea()
+                VStack {
+                    Image("logo-esprit-2.b8fedba0")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 80, height: 220)
+                        .ignoresSafeArea()
+                    Spacer()
+                }
+                .padding(.top, 50) // add some padding to the top of the VStack
                 
                 VStack(spacing: 10) {
                     Text("Log in")
@@ -38,30 +42,51 @@ struct LoginView: View {
                     
                     
                      
-                    Button(action: login) {
-                        Text("Login")
-                            .foregroundColor(.white)
-                            .padding(.vertical, 10)
-                            .frame(maxWidth: .infinity)
-                            .background(Color.red)
-                            .cornerRadius(10)
+//                    Button(action: login) {
+//                        Text("Login")
+//                            .foregroundColor(.white)
+//                            .padding(.vertical, 10)
+//                            .frame(maxWidth: .infinity)
+//                            .background(Color.red)
+//                            .cornerRadius(10)
+//                    }
+                    HStack {
+                        Button(action: login) {
+                            Text("Login")
+                                .foregroundColor(.white)
+                                .padding(.vertical, 10)
+                                .frame(maxWidth: .infinity)
+                                .background(Color.red)
+                                .cornerRadius(10)
+                        }
+                        if getBioMetricStatus() {
+                            Button(action: Authent) {
+                                Image(systemName: LAContext().biometryType == .faceID ? "faceid" : "touchid")
+                                    .font(.title)
+                                    .foregroundColor(.white)
+                                    .padding()
+                                    .background(Color.red)
+                                    .clipShape(Circle())
+                            }
+                        }
                     }
                     
-                    NavigationLink(destination: SignupView()) {
+                    NavigationLink(destination: SignupView(), label: {
                         Text("Don't have an account? Sign up")
-                    }
+                    }).navigationBarBackButtonHidden(true)
                
-                    NavigationLink(destination: ForgetView()) {
+                    NavigationLink(destination: ForgetView(), label: {
                         Text("Forgot password?")
-                    }
+                    }).navigationBarBackButtonHidden(true)
                   
                 
                     NavigationLink(
                         destination: HomepageView(),
                         isActive: $isShowingHomeView
-                    ) {
+                    ){
                         EmptyView()
                     }
+                    .navigationBarBackButtonHidden(true)
                 }
                 .padding()
                 .cornerRadius(10)
@@ -87,6 +112,33 @@ struct LoginView: View {
             showError = true
         })
     }
+    
+    func getBioMetricStatus()->Bool{
+        let scanner = LAContext()
+        if email == user && scanner.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: .none) {
+            return true
+        }
+        return false
+    }
+    
+    func Authent(){
+        let context = LAContext()
+        var error: NSError?
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            let reason = "We Need to scan your face. "
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) {success, AuthenticationError in
+                if success{
+                    //authent success
+                    unlocked = true
+                    isShowingHomeView = true
+                }else{
+                    //there was a problem
+                }
+            }
+        } else {
+            //no biometrics
+        }
+    }
 }
 
 struct LoginView_Previews: PreviewProvider {
@@ -94,5 +146,3 @@ struct LoginView_Previews: PreviewProvider {
         LoginView()
     }
 }
-
-

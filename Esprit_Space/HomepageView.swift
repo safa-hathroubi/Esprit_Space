@@ -43,6 +43,7 @@ var navigateButton: some View {
                 .foregroundColor(.white)
         }
     }
+    .navigationBarBackButtonHidden(true)
 }
 
 var body: some View {

@@ -24,6 +24,7 @@
 		0A8651ED29E8219C00F1C24F /* NotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8651EC29E8219C00F1C24F /* NotesView.swift */; };
 		0A8651EF29E821CE00F1C24F /* TimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8651EE29E821CE00F1C24F /* TimetableView.swift */; };
 		0AA4E97F29CB7ADA00DD44EB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA4E97E29CB7ADA00DD44EB /* HomeView.swift */; };
+		0ABBEC152A1660480087DE4D /* FaceID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABBEC142A1660480087DE4D /* FaceID.swift */; };
 		0AD091FA29F95D69008EFA98 /* Evenement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD091F929F95D69008EFA98 /* Evenement.swift */; };
 		0AD091FC29F96161008EFA98 /* EvenementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD091FB29F96161008EFA98 /* EvenementViewModel.swift */; };
 		0AD091FE29F96F67008EFA98 /* EventsUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD091FD29F96F67008EFA98 /* EventsUIView.swift */; };
@@ -82,6 +83,7 @@
 		0A8651EC29E8219C00F1C24F /* NotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesView.swift; sourceTree = "<group>"; };
 		0A8651EE29E821CE00F1C24F /* TimetableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableView.swift; sourceTree = "<group>"; };
 		0AA4E97E29CB7ADA00DD44EB /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		0ABBEC142A1660480087DE4D /* FaceID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceID.swift; sourceTree = "<group>"; };
 		0AD091F929F95D69008EFA98 /* Evenement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Evenement.swift; sourceTree = "<group>"; };
 		0AD091FB29F96161008EFA98 /* EvenementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvenementViewModel.swift; sourceTree = "<group>"; };
 		0AD091FD29F96F67008EFA98 /* EventsUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsUIView.swift; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 				D766A9A329E6DD7F0059A807 /* forgot3.swift */,
 				D766A99F29E6DD260059A807 /* ForgetView.swift */,
 				0A5DDC5429FA942800B195EC /* FileImporter.swift */,
+				0ABBEC142A1660480087DE4D /* FaceID.swift */,
 			);
 			path = Esprit_Space;
 			sourceTree = "<group>";
@@ -527,6 +530,7 @@
 				0A8651E729E820FD00F1C24F /* EditProfileView.swift in Sources */,
 				0AA4E97F29CB7ADA00DD44EB /* HomeView.swift in Sources */,
 				0617BCFF2A0550C700641E26 /* NewsUIView.swift in Sources */,
+				0ABBEC152A1660480087DE4D /* FaceID.swift in Sources */,
 				D766A9A029E6DD260059A807 /* ForgetView.swift in Sources */,
 				0AD091FE29F96F67008EFA98 /* EventsUIView.swift in Sources */,
 				0AD091FA29F95D69008EFA98 /* Evenement.swift in Sources */,
@@ -716,6 +720,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Esprit_Space/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "We Need to scan your face.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -745,6 +750,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Esprit_Space/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "We Need to scan your face.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
