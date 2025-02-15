@@ -26,12 +26,6 @@ The app provides a user-friendly interface with the following functionalities:
 - Access weekly news updates.
 - Manage personal profile and class information.
 
-For a visual representation of the app's interface and functionality, please refer to the screenshots section.
-
-## Screenshots
-
-[Add screenshots here]
-
 ## Contributing
 
 Esprit Space was initially developed as an academic project, and it serves as our first experience with iOS development. While we may explore further improvements and updates in the future, we welcome contributions from the community to enhance the app's features and overall user experience.
